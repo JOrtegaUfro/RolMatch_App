@@ -1,0 +1,39 @@
+image: cimg/android:2021.08.1-ndk
+
+stages:
+  - build
+build:
+  stage: build
+
+  only:
+    - develop
+  before_script:
+    - echo "APP_IP=$APP_IP" >> .env
+    - cd android
+    - ls
+    - mkdir -p ./src
+    - echo "$JKS_STIME" | base64 --decode > ./app/src/sporttimekey.jks
+    - sudo chmod +x ./gradlew
+    - wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.22.1-stable.tar.xz
+    - tar xf flutter_linux_3.22.1-stable.tar.xz
+    - export PATH="$PATH:`pwd`/flutter/bin"
+    - echo "sdk.dir=/opt/android/sdk" > local.properties
+    - echo "flutter.sdk=$(pwd)/flutter" >> local.properties
+    - echo "flutter.buildMode=debug" >> local.properties
+    - echo "flutter.versionName=1.0.0" >> local.properties
+    - echo "flutter.versionCode=1" >> local.properties
+    - flutter doctor
+  script:
+    - ./gradlew signInReport
+    - cd ..
+    - echo "$APP_IP"
+    - ls
+    - flutter build apk --debug
+
+  artifacts:
+    name: "SportTime-App"
+    when: on_success
+    paths:
+      - android/app/src/sporttimekey.jks
+      - build/app/outputs/flutter-apk/app-debug.apk
+
