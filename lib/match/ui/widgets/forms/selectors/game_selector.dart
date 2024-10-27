@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rol_match/match/domain/create/form_save.dart';
 
-class SportSelector extends StatefulWidget {
-  const SportSelector({super.key});
+class GameSelector extends StatefulWidget {
+  const GameSelector({super.key});
 
   @override
-  State<SportSelector> createState() {
-    return _SportSelectorState();
+  State<GameSelector> createState() {
+    return _GameSelectorState();
   }
 }
 
 //Selección de deporte
-class _SportSelectorState extends State<SportSelector> {
+class _GameSelectorState extends State<GameSelector> {
   String? _dropDownValue;
   FormSave _formSave = new FormSave();
 
@@ -35,20 +35,20 @@ class _SportSelectorState extends State<SportSelector> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
-      hint: Text("Deporte"),
+      hint: Text("Juego"),
       value: _dropDownValue,
       items: const [
         DropdownMenuItem(
-          value: "Básquetbol",
-          child: Text("Básquetbol"),
+          value: "DnD",
+          child: Text("DnD"),
         ),
         DropdownMenuItem(
-          value: "Fútbol",
-          child: Text("Futbol"),
+          value: "Cthulhu",
+          child: Text("Cthulhu"),
         ),
         DropdownMenuItem(
-          value: "Vóleibol",
-          child: Text("Volleyball"),
+          value: "Otro",
+          child: Text("Otro"),
         ),
       ],
       onChanged: dropDownCallback,

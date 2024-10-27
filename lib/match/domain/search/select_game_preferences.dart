@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:rol_match/match/ui/widgets/forms/selectors/sport_selector.dart';
+import 'package:rol_match/match/ui/widgets/forms/selectors/game_selector.dart';
 
 //Logica de seleccion de preferencia de desporte
 class SelectSportPreferences {
@@ -19,11 +19,11 @@ class SelectSportPreferences {
               content: const Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('¿Qué categoria de deporte deseas seleccionar?'),
+                  Text('¿Qué juego deseas seleccionar?'),
                   SizedBox(
                     height: 20,
                   ),
-                  SportSelector()
+                  GameSelector()
                 ],
               ),
               actions: <Widget>[
@@ -35,8 +35,8 @@ class SelectSportPreferences {
                   onPressed: () async {
                     final SharedPreferences prefs =
                         await SharedPreferences.getInstance();
-                    String chosed = prefs.getString('sport_selector_map')!;
-                    prefs.setString('sport_pref', chosed);
+                    String chosed = prefs.getString('game_selector_map')!;
+                    prefs.setString('game_pref', chosed);
                     print("chosed");
                     Navigator.pop(context, 'Ok');
                   },

@@ -7,24 +7,31 @@ import 'package:url_launcher/url_launcher.dart';
 
 //! Contenedor de sección de formulario respectiva a la búsqueda o soleccion deuna ubicación
 class FormMapContainer extends StatefulWidget {
-  const FormMapContainer({super.key});
-
+  const FormMapContainer({super.key, required this.testing});
+  final bool testing;
   @override
   State<FormMapContainer> createState() {
-    return _FormMapContainerState();
+    return _FormMapContainerState(testing);
   }
 }
 
 class _FormMapContainerState extends State<FormMapContainer> {
   final TextEditingController _textController = TextEditingController();
+  final bool testing;
   double latitud = 0;
   double longitud = 0;
   final List<Marker> marcadores = [];
   LocationCoordinate coordinate = new LocationCoordinate();
 
+  _FormMapContainerState(this.testing);
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [_LocationInput(), _MapView()]);
+    List<Widget> childrenWidgets = [Container()];
+    if (testing == false) {
+      childrenWidgets = [_LocationInput(), _MapView()];
+    }
+    return Column(children: childrenWidgets);
   }
 
   //Vista del mapa, obtiene el estado de marcador y se actualiza en base a este
@@ -55,17 +62,11 @@ class _FormMapContainerState extends State<FormMapContainer> {
         ),
         children: [
           RichAttributionWidget(
-            attributions: [
-              TextSourceAttribution(
-                'OpenStreetMap contributors',
-                onTap: () =>
-                    launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
-              ),
-            ],
+            attributions: [],
           ),
           TileLayer(
             urlTemplate:
-                'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+                "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
             userAgentPackageName: 'com.example.app',
           ),
           MarkerLayer(

@@ -36,7 +36,10 @@ class MyApp extends StatelessWidget {
       theme: theme.light(),
       routes: {
         //!Rutas de vistas que inician un nuevo arbol de Widgets
-        '/home': (context) => const SafeArea(child: HomePage()),
+        '/home': (context) => const SafeArea(
+                child: HomePage(
+              testing: false,
+            )),
         '/agendaPartido': (context) =>
             const SafeArea(child: VistaAgendaPartido()),
         '/infoPartido': (context) =>

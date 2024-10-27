@@ -6,24 +6,28 @@ import '../../../match/ui/views/search/vista_buscar_partida.dart';
 
 //!Vista donde se recibe al usuario inicialmente
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, this.storage});
-
+  const HomePage({super.key, this.storage, required this.testing});
+  final bool testing;
   final FlutterSecureStorage? storage;
 
   @override
   State<HomePage> createState() {
-    return _HomePageState(storage);
+    return _HomePageState(testing);
   }
 }
 
 class _HomePageState extends State<HomePage> {
-  _HomePageState(FlutterSecureStorage? storage);
-
-  final List<Widget> _pages = [
-    VistaBuscarPartida(),
-    VistaCrearPartida(),
-    VistaPerfil(),
-  ];
+  final bool testing;
+  _HomePageState(this.testing);
+  List<Widget> _pages = [];
+  @override
+  void initState() {
+    _pages = [
+      VistaBuscarPartida(),
+      VistaCrearPartida(test: testing),
+      VistaPerfil(),
+    ];
+  }
 
   // VistaBuscarPartida(),
   //   ,

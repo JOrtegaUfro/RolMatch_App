@@ -9,7 +9,7 @@ import 'package:rol_match/user/data/storage/secure_storage.dart';
 
 class BuscarPartidoService {
   String _ip = dotenv.env['APP_IP']!;
-  Future<List<MapMatch>> findMatchs(String sport) async {
+  Future<List<MapMatch>> findMatchs(String game) async {
     //!Cambiar a id de usuario
     SecureStorage secure = new SecureStorage();
     String userId = await secure.readSecureDataId();
@@ -23,7 +23,7 @@ class BuscarPartidoService {
     };
     String body = json.encode({
       "id": userIdInt,
-      "sport": sport.toString(),
+      "game": game.toString(),
     });
 
     print("Enviando $body");
@@ -54,7 +54,7 @@ class BuscarPartidoService {
     throw Exception('ERRROR Fallo carga de partidos');
   }
 
-  Future<JoinedMatch> findNearestMatch(String sport) async {
+  Future<JoinedMatch> findNearestMatch(String game) async {
     SecureStorage secure = new SecureStorage();
     String userId = await secure.readSecureDataId();
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -71,7 +71,7 @@ class BuscarPartidoService {
 
     String body = json.encode({
       "id": userIdInt,
-      "sport": sport.toString(),
+      "game": game.toString(),
       "longitude": longitud,
       "latitude": latitud
     });

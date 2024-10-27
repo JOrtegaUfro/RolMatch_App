@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:rol_match/match/data/services/buscar_partido_service.dart';
+import 'package:rol_match/match/data/services/buscar_partida_service.dart';
 import 'package:rol_match/match/domain/dialogs/search_dialogs.dart';
 import 'package:rol_match/match/domain/maps/search_maps.dart';
 import 'package:rol_match/match/domain/search/search_match.dart';
@@ -17,30 +17,30 @@ class VistaBuscarPartida extends StatefulWidget {
 }
 
 class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
-  late String sport;
+  late String game;
   final BuscarPartidoService partidoService = new BuscarPartidoService();
   late Future<List<dynamic>> futureMatches = Future.value([]);
 
-  Future<void> _loadSport() async {
+  Future<void> _loadgame() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     print("WAS SET 2");
 
     setState(() {
-      sport = prefs.getString('sport_pref')!;
-      futureMatches = partidoService.findMatchs(sport);
+      game = prefs.getString('game_pref')!;
+      futureMatches = partidoService.findMatchs(game);
     });
   }
 
   Future<void> _default() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     print("WAS SET 1");
-    String? storedSport = prefs.getString('sport_pref');
-    if (storedSport == null) {
-      prefs.setString('sport_pref', 'Fútbol');
+    String? storedgame = prefs.getString('game_pref');
+    if (storedgame == null) {
+      prefs.setString('game_pref', 'Fútbol');
     } else {}
     setState(() {
-      sport = prefs.getString('sport_pref')!;
-      futureMatches = partidoService.findMatchs(sport);
+      game = prefs.getString('game_pref')!;
+      futureMatches = partidoService.findMatchs(game);
     });
   }
 
@@ -53,16 +53,16 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
   //dialogs mostrara los dialogos que se muestren al usuario (popup)
   SearchDialogs dialogs = new SearchDialogs();
 
-  /// La función `_reloadView` recupera el deporte preferido del usuario de SharedPreferences y actualiza
+  /// La función `_reloadView` recupera el juego preferido del usuario de SharedPreferences y actualiza
   /// la vista en consecuencia debido al uso de setState.
   Future<void> _reloadView() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     setState(() {
-      sport = prefs.getString('sport_pref')!;
-      print("USING $sport");
-      futureMatches = partidoService.findMatchs(sport);
-      _loadSport();
+      game = prefs.getString('game_pref')!;
+      print("USING $game");
+      futureMatches = partidoService.findMatchs(game);
+      _loadgame();
     });
   }
 
@@ -91,7 +91,7 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
                     _declareLocation(value.longitude, value.latitude);
                   });
                   await _reloadView();
-                  dialogs.search(context, sport);
+                  dialogs.search(context, game);
 
                   // _showSearchDialog(context);
                 },

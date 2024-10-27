@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rol_match/match/data/services/buscar_partido_service.dart';
+import 'package:rol_match/match/data/services/buscar_partida_service.dart';
 import 'package:rol_match/match/data/services/join_service.dart';
 import 'package:rol_match/match/domain/models/joined_match.dart';
 import 'package:rol_match/match/domain/create/notifications_services.dart';

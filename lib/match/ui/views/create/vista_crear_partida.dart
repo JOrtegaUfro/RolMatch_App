@@ -7,11 +7,12 @@ import 'package:rol_match/match/ui/widgets/forms/selectors/date_selector.dart';
 import 'package:rol_match/match/ui/widgets/forms/selectors/duration_selector.dart';
 import 'package:rol_match/map/ui/widgets/form_map_container.dart';
 import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';
-import 'package:rol_match/match/ui/widgets/forms/selectors/sport_selector.dart';
+import 'package:rol_match/match/ui/widgets/forms/selectors/game_selector.dart';
 
 //! Vista para crear el partido
 class VistaCrearPartida extends StatelessWidget {
-  const VistaCrearPartida({super.key});
+  const VistaCrearPartida({super.key, required this.test});
+  final bool test;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +25,13 @@ class VistaCrearPartida extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  //FormMapContainer(),
+                  FormMapContainer(testing: test),
                   SizedBox(height: 20),
                   DateSelector(),
                   SizedBox(height: 20),
                   const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [SportSelector(), DurationSelector()]),
+                      children: [GameSelector(), DurationSelector()]),
                   SizedBox(height: 20),
                   SizedBox(
                     height: 20,

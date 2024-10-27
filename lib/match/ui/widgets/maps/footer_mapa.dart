@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rol_match/match/domain/search/select_sport_preferences.dart';
+import 'package:rol_match/match/domain/search/select_game_preferences.dart';
 
 class FooterMapa extends StatelessWidget {
   const FooterMapa({super.key});

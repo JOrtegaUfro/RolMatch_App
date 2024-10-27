@@ -1,16 +1,24 @@
 // Este es un Test para identificar los Widget de autentificación
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:rol_match/user/ui/views/home_page.dart';
 import 'package:rol_match/user/ui/views/profile/vista_perfil.dart';
 
 void main() {
+  setUp(() async {
+    debugPrint("Enviorment declaration");
+
+    await dotenv.load(fileName: ".env");
+  });
   testWidgets('Second screen is homepage screen', (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        home: HomePage(),
+        home: HomePage(
+          testing: true,
+        ),
       ),
     );
     await tester.runAsync(() async {

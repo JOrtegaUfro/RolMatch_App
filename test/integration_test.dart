@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rol_match/match/ui/views/create/vista_crear_partida.dart';
 import 'package:rol_match/match/ui/widgets/forms/selectors/duration_selector.dart';
-import 'package:rol_match/match/ui/widgets/forms/selectors/sport_selector.dart';
+import 'package:rol_match/match/ui/widgets/forms/selectors/game_selector.dart';
 import 'package:rol_match/user/data/storage/secure_storage.dart';
 import 'package:rol_match/user/domain/utils/profile_image.dart';
 import 'package:rol_match/user/ui/views/home_page.dart';
@@ -35,7 +35,9 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        home: HomePage(),
+        home: HomePage(
+          testing: true,
+        ),
       ),
     );
 
@@ -65,7 +67,9 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(
       MaterialApp(
-        home: HomePage(),
+        home: HomePage(
+          testing: true,
+        ),
       ),
     );
 
@@ -90,7 +94,7 @@ void main() {
     debugPrint("After");
 
     await tester.pump(Duration(seconds: 5));
-    expect(find.byType(SportSelector), findsOneWidget);
+    expect(find.byType(GameSelector), findsOneWidget);
     expect(find.byType(DurationSelector), findsOneWidget);
   });
 }
