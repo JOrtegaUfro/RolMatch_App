@@ -24,7 +24,7 @@ class VistaCrearPartida extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  FormMapContainer(),
+                  //FormMapContainer(),
                   SizedBox(height: 20),
                   DateSelector(),
                   SizedBox(height: 20),

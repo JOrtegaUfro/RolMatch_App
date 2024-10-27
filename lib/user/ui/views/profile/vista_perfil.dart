@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rol_match/user/data/storage/secure_storage.dart';
 import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';
-import 'package:rol_match/match/ui/widgets/profiles/medal_table_container.dart';
 import 'package:rol_match/user/domain/utils/profile_image.dart';
 import 'package:rol_match/user/ui/widgets/future/name_future_builder.dart';
 
@@ -13,6 +12,7 @@ class VistaPerfil extends StatelessWidget {
   Widget build(BuildContext context) {
     SecureStorage secureStorage = new SecureStorage();
     return Scaffold(
+      key: const ValueKey('ViewProfile'),
       //* Columna que organiza las partes de la vista perfil
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

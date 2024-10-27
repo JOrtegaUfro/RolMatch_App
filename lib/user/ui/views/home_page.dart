@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../match/ui/views/create/vista_crear_partida.dart';
 import 'profile/vista_perfil.dart';
 import '../../../match/ui/views/search/vista_buscar_partida.dart';
 
 //!Vista donde se recibe al usuario inicialmente
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, this.storage});
+
+  final FlutterSecureStorage? storage;
 
   @override
   State<HomePage> createState() {
-    return _HomePageState();
+    return _HomePageState(storage);
   }
 }
 
 class _HomePageState extends State<HomePage> {
+  _HomePageState(FlutterSecureStorage? storage);
+
   final List<Widget> _pages = [
-    Container(),
+    VistaBuscarPartida(),
     VistaCrearPartida(),
     VistaPerfil(),
   ];

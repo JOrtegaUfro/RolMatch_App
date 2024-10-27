@@ -19,7 +19,7 @@ class VistaBuscarPartida extends StatefulWidget {
 class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
   late String sport;
   final BuscarPartidoService partidoService = new BuscarPartidoService();
-  late Future<List<dynamic>> futureMatches;
+  late Future<List<dynamic>> futureMatches = Future.value([]);
 
   Future<void> _loadSport() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
