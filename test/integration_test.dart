@@ -73,7 +73,7 @@ void main() {
       ),
     );
 
-    debugPrint("Tapping 'Perfil' button");
+    debugPrint("Tapping 'Crear Partida' button");
     try {
       expect(find.byKey(const ValueKey('CreateGame')), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('CreateGame')));
