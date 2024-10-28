@@ -33,6 +33,7 @@ class _DurationSelectorState extends State<DurationSelector> {
       value: _dropDownValue,
       items: const [
         DropdownMenuItem(
+          key: ValueKey("15min"),
           value: 15,
           child: Text("15 minutos"),
         ),

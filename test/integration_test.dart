@@ -96,5 +96,25 @@ void main() {
     await tester.pump(Duration(seconds: 5));
     expect(find.byType(GameSelector), findsOneWidget);
     expect(find.byType(DurationSelector), findsOneWidget);
+
+    expect(find.text('Juego'), findsOneWidget);
+    await tester.tap(find.byType(DropdownButton<String>));
+    await tester.pumpAndSettle();
+
+    expect(find.text('DnD'), findsOneWidget);
+    expect(find.text('Cthulhu'), findsOneWidget);
+    expect(find.text('Otro'), findsOneWidget);
+
+    expect(find.text('Fecha'), findsOneWidget);
+    await tester.tap(find.text('Fecha'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Hora'), findsOneWidget);
+    await tester.tap(find.text('Hora'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Duración'), findsOneWidget);
+    await tester.tap(find.byType(DropdownButton<int>));
+    await tester.pumpAndSettle();
   });
 }
