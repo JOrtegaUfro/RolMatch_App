@@ -116,5 +116,11 @@ void main() {
     expect(find.text('Duración'), findsOneWidget);
     await tester.tap(find.byType(DropdownButton<int>));
     await tester.pumpAndSettle();
+
+    expect(find.text('Número de cupos'), findsOneWidget);
+    expect(find.text('0'), findsOneWidget);
+
+    expect(find.text('Jugadores totales'), findsOneWidget);
+    expect(find.text('1'), findsOneWidget);
   });
 }
