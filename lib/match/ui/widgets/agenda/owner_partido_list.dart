@@ -93,8 +93,8 @@ class OwnerPartidoList {
     List<Widget> results = [];
     OwnerMatches owner = new OwnerMatches();
     matches.forEach((match) {
-      String sport = match.sport;
-      String typeMatch = "partido de $sport";
+      String type = match.type;
+      String typeMatch = "partido de $type";
       final tempMatch = owner.Match(
           context,
           typeMatch,
@@ -114,8 +114,8 @@ class OwnerPartidoList {
     List<Widget> results = [];
     OwnerMatches owner = new OwnerMatches();
     matches.forEach((match) {
-      String sport = match.sport;
-      String typeMatch = "partido de $sport";
+      String type = match.type;
+      String typeMatch = "partido de $type";
       final tempMatch = owner.JoinedMatch(
           context,
           typeMatch,

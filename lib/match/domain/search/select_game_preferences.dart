@@ -35,9 +35,15 @@ class SelectSportPreferences {
                   onPressed: () async {
                     final SharedPreferences prefs =
                         await SharedPreferences.getInstance();
-                    String chosed = prefs.getString('game_selector_map')!;
-                    prefs.setString('game_pref', chosed);
-                    print("chosed");
+                    try {
+                      String chosed =
+                          await prefs.getString('game_selector_map')!;
+                      prefs.setString('game_pref', chosed);
+                    } catch (e) {
+                      print("error $e");
+                    }
+
+                    //? si se alamacena se permite realizar un cierre normal del dialog
                     Navigator.pop(context, 'Ok');
                   },
                   child: const Text('OK'),

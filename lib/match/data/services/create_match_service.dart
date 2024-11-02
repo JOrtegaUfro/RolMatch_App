@@ -12,7 +12,7 @@ class CreateMatchService {
     //!Cambiar a id de usuario
     SecureStorage secure = new SecureStorage();
     String userId = await secure.readSecureDataId();
-    String _url = 'http://$_ip/matches/$userId';
+    String _url = 'http://$_ip/games/$userId';
     var dio = Dio();
     //!Sin autorizacion por token
     Map<String, String> headers = {

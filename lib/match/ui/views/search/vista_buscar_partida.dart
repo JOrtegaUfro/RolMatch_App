@@ -36,7 +36,7 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
     print("WAS SET 1");
     String? storedgame = prefs.getString('game_pref');
     if (storedgame == null) {
-      prefs.setString('game_pref', 'Fútbol');
+      prefs.setString('game_pref', 'Cthulhu');
     } else {}
     setState(() {
       game = prefs.getString('game_pref')!;

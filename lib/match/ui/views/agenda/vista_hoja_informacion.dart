@@ -42,7 +42,7 @@ class _HomePageState extends State<VistaHojaInformacion> {
       builder: (context, AsyncSnapshot<JoinedMatch> snapshot) {
         if (snapshot.hasData) {
           JoinedMatch joined = snapshot.data! as JoinedMatch;
-          return vista(joined.totalPlayers!, joined.sport!);
+          return vista(joined.totalPlayers!, joined.type!);
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
@@ -52,12 +52,12 @@ class _HomePageState extends State<VistaHojaInformacion> {
     );
   }
 
-  Widget vista(int totalPlayers, String sport) {
+  Widget vista(int totalPlayers, String type) {
     return Scaffold(
       appBar: AppBar(
         title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [Text('$totalPlayers Jugadores'), Spacer(), Text(sport)]),
+            children: [Text('$totalPlayers Jugadores'), Spacer(), Text(type)]),
         automaticallyImplyLeading: true,
       ),
       body: _pages[_selectedIndex],
@@ -71,8 +71,8 @@ class _HomePageState extends State<VistaHojaInformacion> {
             label: 'Jugadores',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.sports_football),
-            label: 'Partido',
+            icon: Icon(Icons.grid_on),
+            label: 'Partida',
           ),
         ],
       ),

@@ -24,8 +24,8 @@ class _GameSelectorState extends State<GameSelector> {
         if (_dropDownValue != null) {
           _formSave.saveSport(_dropDownValue!);
           print("INTENTO INTENTO");
-          prefs.setString('sport_selector_map', _dropDownValue!);
-          String sport = prefs.getString('sport_selector_map')!;
+          prefs.setString('game_selector_map', _dropDownValue!);
+          String sport = prefs.getString('game_selector_map')!;
           print("SET SET $sport");
         }
       });

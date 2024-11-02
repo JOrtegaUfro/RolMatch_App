@@ -13,7 +13,7 @@ class AgendaPartidoService {
     //!Cambiar Id a Id de usuario en sesión
     SecureStorage secure = new SecureStorage();
     String userId = await secure.readSecureDataId();
-    String _url = 'http://$_ip/matches/user/$userId';
+    String _url = 'http://$_ip/games/user/$userId';
     Map<String, String> headers = {
       'Content-Type': 'application/json',
     };
@@ -34,7 +34,7 @@ class AgendaPartidoService {
     //!Cambiar Id a Id de usuario en sesión
     SecureStorage secure = new SecureStorage();
     String userId = await secure.readSecureDataId();
-    String _url = 'http://$_ip/matches/joined/$userId';
+    String _url = 'http://$_ip/games/joined/$userId';
     Map<String, String> headers = {
       'Content-Type': 'application/json',
     };

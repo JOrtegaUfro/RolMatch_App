@@ -5,7 +5,7 @@ class OwnerMatch {
   String? _date;
   String? _duration;
   String? _hora;
-  String? _sport;
+  String? _type;
   int? _totalSlots;
   int? _totalPlayers;
   // Constructor
@@ -16,7 +16,7 @@ class OwnerMatch {
       String? date,
       String? duration,
       String? hora,
-      String? sport,
+      String? type,
       int? totalSlots,
       int? totalPlayers})
       : _id = id,
@@ -25,7 +25,7 @@ class OwnerMatch {
         _date = date,
         _duration = duration,
         _hora = hora,
-        _sport = sport,
+        _type = type,
         _totalSlots = totalSlots,
         _totalPlayers = totalPlayers;
 
@@ -36,7 +36,7 @@ class OwnerMatch {
   String? get date => _date;
   String? get duration => _duration;
   String? get hora => _hora;
-  String? get sport => _sport;
+  String? get type => _type;
   int? get totalSlots => _totalSlots;
   int? get totalPlayers => _totalPlayers;
 
@@ -65,8 +65,8 @@ class OwnerMatch {
     _hora = value;
   }
 
-  set sport(String? sport) {
-    _sport = sport;
+  set type(String? type) {
+    _type = type;
   }
 
   set totalSlots(int? slots) {
@@ -86,7 +86,7 @@ class OwnerMatch {
       date: json['date'],
       duration: json['duration'],
       hora: json['hour'],
-      sport: json['sport'],
+      type: json['type'],
       totalSlots: json['playerSlots'],
       totalPlayers: json['totalPlayers'],
     );

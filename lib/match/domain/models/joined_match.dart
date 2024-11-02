@@ -5,7 +5,7 @@ class JoinedMatch {
   String? _date;
   String? _duration;
   String? _hora;
-  String? _sport;
+  String? _type;
   int? _totalSlots;
   int? _totalPlayers;
   String? _title;
@@ -17,7 +17,7 @@ class JoinedMatch {
     String? date,
     String? duration,
     String? hora,
-    String? sport,
+    String? type,
     int? totalSlots,
     int? totalPlayers,
     String? title,
@@ -27,7 +27,7 @@ class JoinedMatch {
         _date = date,
         _duration = duration,
         _hora = hora,
-        _sport = sport,
+        _type = type,
         _totalSlots = totalSlots,
         _totalPlayers = totalPlayers,
         _title = title;
@@ -39,7 +39,7 @@ class JoinedMatch {
   String? get date => _date;
   String? get duration => _duration;
   String? get hora => _hora;
-  String? get sport => _sport;
+  String? get type => _type;
   String? get title => _title;
   int? get totalSlots => _totalSlots;
   int? get totalPlayers => _totalPlayers;
@@ -73,8 +73,8 @@ class JoinedMatch {
     _hora = value;
   }
 
-  set sport(String? sport) {
-    _sport = sport;
+  set type(String? type) {
+    _type = type;
   }
 
   set totalSlots(int? slots) {
@@ -95,7 +95,7 @@ class JoinedMatch {
       date: json['date'],
       duration: json['duration'],
       hora: json['hour'],
-      sport: json['sport'],
+      type: json['type'],
       totalSlots: json['playerSlots'],
       totalPlayers: json['totalPlayers'],
     );

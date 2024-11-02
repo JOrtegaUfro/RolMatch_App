@@ -9,14 +9,20 @@ import 'package:rol_match/user/data/storage/secure_storage.dart';
 
 class BuscarPartidoService {
   String _ip = dotenv.env['APP_IP']!;
-  Future<List<MapMatch>> findMatchs(String game) async {
-    //!Cambiar a id de usuario
-    SecureStorage secure = new SecureStorage();
-    String userId = await secure.readSecureDataId();
 
-    String _url = 'http://$_ip/matches/userSearch/$userId';
-    var dio = Dio();
+  var dio = Dio();
+  SecureStorage secure = new SecureStorage();
+
+  Future<List<MapMatch>> findMatchs(String game) async {
+    print("APP_IP is $_ip");
+    //!Cambiar a id de usuario
+    //
+    String userId = await secure.readSecureDataId();
     var userIdInt = int.parse(userId);
+    String _url = 'http://$_ip/matches/userSearch/$userId';
+    //
+    //
+    //--
     //!Sin autorizacion por token
     Map<String, String> headers = {
       'Content.Type': 'application/json',
@@ -25,8 +31,10 @@ class BuscarPartidoService {
       "id": userIdInt,
       "game": game.toString(),
     });
+    //
+    //
+    //---
 
-    print("Enviando $body");
     try {
       var response = await dio.get(
         _url,
@@ -35,27 +43,24 @@ class BuscarPartidoService {
           headers: {'Content-Type': 'application/json'},
         ),
       );
-      print("POST POST");
-      print("$response");
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         List<dynamic> jsonResponse = response.data;
         List<MapMatch> matches =
             jsonResponse.map((json) => MapMatch.fromJson(json)).toList();
-        print("SE ENCONTRARON PARTIDAS");
+
         return matches;
       } else {
         var error = response.data;
-        print("ERROR DE SOLICITUD $error");
       }
     } catch (e) {
-      print("FALLO FALLO FALLO $e");
+      return <MapMatch>[];
     }
 
     throw Exception('ERRROR Fallo carga de partidos');
   }
 
   Future<JoinedMatch> findNearestMatch(String game) async {
-    SecureStorage secure = new SecureStorage();
     String userId = await secure.readSecureDataId();
     SharedPreferences prefs = await SharedPreferences.getInstance();
 

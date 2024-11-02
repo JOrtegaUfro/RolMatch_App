@@ -26,7 +26,7 @@ class VistaPerfil extends StatelessWidget {
           SizedBox(height: 30),
           Spacer(),
           LiveButton(
-              text: "Ver agenda de partidos",
+              text: "Ver agenda de partidas",
               onTap: () {
                 Navigator.pushNamed(context, '/agendaPartido');
               }),

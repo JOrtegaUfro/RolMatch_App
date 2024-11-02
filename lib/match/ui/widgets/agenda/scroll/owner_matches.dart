@@ -116,7 +116,7 @@ class OwnerMatches {
         Padding(
           padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
           child: LiveButton(
-              text: "Hoja de información del partido",
+              text: "Hoja de información de la partida",
               onTap: () async {
                 final SharedPreferences prefs =
                     await SharedPreferences.getInstance();

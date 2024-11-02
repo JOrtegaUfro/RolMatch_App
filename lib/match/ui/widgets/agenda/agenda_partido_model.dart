@@ -13,6 +13,8 @@ class AgendaPartidoModel extends StatelessWidget {
   Widget partido(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     OwnerPartidoList ownerList = new OwnerPartidoList();
-    return ownerList.build(context);
+    return Column(
+      children: [ownerList.build(context)],
+    );
   }
 }

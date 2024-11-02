@@ -27,8 +27,8 @@ Widget Opciones(BuildContext context) {
         JoinedMatch match = snapshot.data!;
 
         return Column(children: [
-          _partidoContainer(context, match.title!, match.sport!,
-              match.duration!, match.totalPlayers!),
+          _partidoContainer(context, match.title!, match.type!, match.duration!,
+              match.totalPlayers!),
           _opcionSelector(context)
         ]);
       } else if (snapshot.hasError) {
@@ -42,7 +42,7 @@ Widget Opciones(BuildContext context) {
 
 //COntenedor de partido
 Widget _partidoContainer(
-    context, String title, String sport, String duration, int totalPlayers) {
+    context, String title, String type, String duration, int totalPlayers) {
   final ThemeData theme = Theme.of(context);
   return Container(
     height: 250.0,
@@ -73,7 +73,7 @@ Widget _partidoContainer(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextModel(
-                text: "Partido de $sport", size: 20.0, color: Colors.white),
+                text: "Partido de $type", size: 20.0, color: Colors.white),
             TextModel(text: title, size: 15.0, color: Colors.white),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               TextModel(
@@ -120,7 +120,7 @@ Widget _opcionSelector(context) {
         Padding(
           padding: EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 20),
           child: LiveButton(
-              text: "Eliminar el partido",
+              text: "Eliminar la partida",
               onTap: () {
                 _showDeleteDialog(context);
               }),
@@ -131,7 +131,7 @@ Widget _opcionSelector(context) {
         Padding(
           padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
           child: LiveButton(
-              text: "No puedo ir al partido",
+              text: "No puedo ir a la partida",
               onTap: () {
                 _showLeaveDialog(context);
               }),
@@ -139,7 +139,7 @@ Widget _opcionSelector(context) {
         Padding(
           padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
           child: LiveButton(
-              text: "No quiero ir al partido",
+              text: "No quiero ir a la partida",
               onTap: () {
                 _showLeaveDialog(context);
               }),
