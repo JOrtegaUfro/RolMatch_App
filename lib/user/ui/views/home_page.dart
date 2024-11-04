@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         length: _pages.length,
         child: Scaffold(
             appBar: AppBar(
-              title: const Text('Sport Time'),
+              title: const Text('Rol Match'),
               bottom: const TabBar(
                 tabs: [
                   Tab(
