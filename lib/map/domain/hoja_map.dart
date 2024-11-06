@@ -13,7 +13,7 @@ class HojaMap {
         width: 40.0,
         height: 40.0,
         point: LatLng(latitud, longitud),
-        child: Icon(
+        child: const Icon(
           Icons.sports_score,
           color: Colors.orange,
         ),

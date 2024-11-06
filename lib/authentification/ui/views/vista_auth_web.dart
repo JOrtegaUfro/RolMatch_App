@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rol_match/user/data/storage/secure_storage.dart';
+
 import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';
 import 'package:rol_match/authentification/ui/widgets/carousel_login.dart';
-import 'package:rol_match/match/ui/widgets/profiles/medal_table_container.dart';
-import 'package:rol_match/user/domain/utils/profile_image.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:rol_match/match/domain/create/notifications_services.dart';
+
 import 'package:rol_match/authentification/data/services/google_auth.dart';
 
 //! Vista de Autentificación

@@ -4,7 +4,7 @@ class Match {
   String? _date;
   String? _duration;
   String? _hora;
-  String? _sport;
+  String? _type;
   int? _totalSlots;
   int? _totalPlayers;
   String? _userName;
@@ -15,7 +15,7 @@ class Match {
       String? date,
       String? duration,
       String? hora,
-      String? sport,
+      String? type,
       int? totalSlots,
       int? totalPlayers,
       String? userName})
@@ -24,7 +24,7 @@ class Match {
         _date = date,
         _duration = duration,
         _hora = hora,
-        _sport = sport,
+        _type = type,
         _totalSlots = totalSlots,
         _totalPlayers = totalPlayers,
         _userName = userName;
@@ -35,7 +35,7 @@ class Match {
   String? get date => _date;
   String? get duration => _duration;
   String? get hora => _hora;
-  String? get sport => _sport;
+  String? get type => _type;
   int? get totalSlots => _totalSlots;
   int? get totalPlayers => _totalPlayers;
   String? get userName => _userName;
@@ -61,8 +61,8 @@ class Match {
     _hora = value;
   }
 
-  set sport(String? sport) {
-    _sport = sport;
+  set type(String? type) {
+    _type = type;
   }
 
   set totalSlots(int? slots) {
@@ -88,7 +88,7 @@ class Match {
       "longitude": _longitud,
       "playerSlots": _totalSlots,
       "totalPlayers": _totalPlayers,
-      "sport": _sport,
+      "type": _type,
     };
   }
 
@@ -100,7 +100,7 @@ class Match {
       date: json['date'],
       duration: json['duration'],
       hora: json['hour'],
-      sport: json['sport'],
+      type: json['type'],
       totalSlots: json['playerSlots'],
       totalPlayers: json['totalPlayers'],
     );

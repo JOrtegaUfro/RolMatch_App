@@ -17,12 +17,12 @@ class CreateMatch {
     String date = prefs.getString("date") as String;
     String duration = prefs.getString("duration") as String;
     String hora = prefs.getString("hora") as String;
-    String sport = prefs.getString("deporte") as String;
+    String type = prefs.getString("deporte") as String;
     int slots = prefs.getInt("totalSlots") as int;
     int players = prefs.getInt("totalPlayers") as int;
     String userName = await secureStorage.readSecureData('name');
 
-    print("Guardando $date, $hora, $sport, $latitud, $longitud, $duration");
+    print("Guardando $date, $hora, $type, $latitud, $longitud, $duration");
 
     Match match = Match(
         latitud: latitud,
@@ -30,7 +30,7 @@ class CreateMatch {
         date: date,
         duration: duration,
         hora: hora,
-        sport: sport,
+        type: type,
         totalSlots: slots,
         totalPlayers: players,
         userName: userName);

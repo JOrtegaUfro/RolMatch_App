@@ -10,7 +10,7 @@ import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';
 
 //!Vista para buscar un partido
 class VistaBuscarPartida extends StatefulWidget {
-  VistaBuscarPartida({super.key});
+  const VistaBuscarPartida({super.key});
 
   @override
   VistaBuscarPartidaState createState() => VistaBuscarPartidaState();
@@ -23,7 +23,6 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
 
   Future<void> _loadgame() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print("WAS SET 2");
 
     setState(() {
       game = prefs.getString('game_pref')!;
@@ -33,7 +32,7 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
 
   Future<void> _default() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print("WAS SET 1");
+
     String? storedgame = prefs.getString('game_pref');
     if (storedgame == null) {
       prefs.setString('game_pref', 'Cthulhu');
@@ -60,7 +59,7 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
 
     setState(() {
       game = prefs.getString('game_pref')!;
-      print("USING $game");
+
       futureMatches = partidoService.findMatchs(game);
       _loadgame();
     });
@@ -71,7 +70,6 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setDouble('user_sesion_longitud', longitud);
     prefs.setDouble('user_sesion_latitud', latitud);
-    print("COORDENADAS $latitud $longitud");
   }
 
   //Se construye la vista de Buscar partida
@@ -98,7 +96,7 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
               ),
               Container(
                 alignment: Alignment.bottomCenter,
-                child: FooterMapa(),
+                child: const FooterMapa(),
               ),
             ],
           ),
@@ -110,13 +108,13 @@ class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
   //Esta funcion se encuntra con la vista ya que debe realizarse un Future
   //Se encarga de la vista del mapa y gestiona el estado de la vista si se encuentran partidos
   Widget _showMap() {
-    SearchMaps maps = new SearchMaps();
+    SearchMaps maps = SearchMaps();
     return FutureBuilder<List<dynamic>>(
       future: futureMatches,
       builder: (context, snapshot) {
         if (snapshot.hasData &&
             snapshot.connectionState == ConnectionState.done) {
-          SearchMatch searchMatch = new SearchMatch();
+          SearchMatch searchMatch = SearchMatch();
           List<Marker> marcadores =
               searchMatch.OwnerMatches(context, snapshot.data!);
 

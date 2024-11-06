@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rol_match/match/domain/models/player.dart';
-import 'package:rol_match/match/ui/widgets/profiles/player_medal_container.dart';
+
 import 'package:rol_match/user/data/player_service.dart';
 import 'package:rol_match/user/data/storage/secure_storage.dart';
 import 'package:rol_match/user/domain/utils/player_image.dart';
@@ -33,7 +33,6 @@ class UserModel {
   //Modelo de jugador de partido
   Widget playerModel(
       BuildContext context, int id, String picture, String firstName) {
-    PlayerMedalContainer playerMedalContainer = new PlayerMedalContainer();
     PlayerImage playerImage = new PlayerImage();
     return Scaffold(
       appBar: AppBar(
@@ -52,7 +51,6 @@ class UserModel {
           style: TextStyle(fontSize: 30),
         ),
         SizedBox(height: 30),
-        playerMedalContainer.medalBoard(id),
         Spacer()
       ]),
     );

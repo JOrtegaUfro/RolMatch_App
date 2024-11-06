@@ -20,13 +20,12 @@ class GoogleAuth {
       //autentificación y obtencion de accesstoken
       GoogleSignInAuthentication googleAuth = await googleUser.authentication;
       String? accessToken = googleAuth.accessToken;
-      print("---------------------------- AccessToken: $accessToken");
+
       //uso de servicio de Log in
       loginService.logInService(accessToken!);
     }
     //redireccionamiento si esta autorizado
 
     Navigator.pushNamed(context, '/home');
-    print("----------------------------$googleUser");
   }
 }

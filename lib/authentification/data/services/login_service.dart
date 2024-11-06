@@ -5,7 +5,7 @@ import 'package:rol_match/user/data/storage/secure_storage.dart';
 
 //Servicio de ingreso de Google Oauth con backend
 class LoginService {
-  SecureStorage _secureStorage = new SecureStorage();
+  final SecureStorage _secureStorage = SecureStorage();
 
   //Esta funcion almacena tanto el authorization del usuario como la informacion de este, encriptado, en el almacenamiento interno
   void logInService(String token) async {

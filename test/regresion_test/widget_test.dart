@@ -15,7 +15,7 @@ void main() {
   });
   testWidgets('Second screen is homepage screen', (WidgetTester tester) async {
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: HomePage(
           testing: true,
         ),
@@ -32,7 +32,7 @@ void main() {
       debugPrint("Tapping 'Perfil' button");
 
       debugPrint("Wait");
-      await tester.pump(Duration(seconds: 5));
+      await tester.pump(const Duration(seconds: 5));
       debugPrint("Test data perfil");
       expect(find.byType(VistaPerfil), findsNothing);
     });
