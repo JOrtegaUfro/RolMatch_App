@@ -111,8 +111,6 @@ class JugadorModel {
             onPressed: () {
               if (action == "Reportar") {
                 service.reportUser(id);
-              } else {
-                service.recommendUser(id);
               }
 
               print(action);

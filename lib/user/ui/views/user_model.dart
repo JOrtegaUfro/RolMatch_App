@@ -5,7 +5,6 @@ import 'package:rol_match/user/data/player_service.dart';
 import 'package:rol_match/user/data/storage/secure_storage.dart';
 import 'package:rol_match/user/domain/utils/player_image.dart';
 import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';
-import 'package:rol_match/match/ui/widgets/profiles/medal_table_container.dart';
 import 'package:rol_match/user/domain/utils/profile_image.dart';
 
 //! Vista de perfil de usuario (jugador del partido)

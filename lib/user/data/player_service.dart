@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:rol_match/match/domain/models/player.dart';
-import 'package:rol_match/user/domain/models/medal.dart';
 
 class PlayerService {
   String _ip = dotenv.env['APP_IP']!;
