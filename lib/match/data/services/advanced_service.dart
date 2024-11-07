@@ -10,12 +10,16 @@ import 'package:rol_match/user/data/storage/secure_storage.dart';
 
 //Servicio d eobtencion de partido en vista avanzada
 class AdvancedService {
+  final Dio dio;
+  final SharedPreferences? sharedPreferences;
   String _ip = dotenv.env['APP_IP']!;
-  var dio = Dio();
+  AdvancedService({Dio? dio, this.sharedPreferences}) : dio = dio ?? Dio();
+
   //
   //
   Future<JoinedMatch> getMatch() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = sharedPreferences ?? await SharedPreferences.getInstance();
     int id = prefs.getInt('advanced_match_id')!;
     String _url = 'http://$_ip/games/$id';
 

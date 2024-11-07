@@ -4,13 +4,15 @@ import 'package:rol_match/user/data/storage/secure_storage.dart';
 
 //Servicio para unirse a Partido
 class JoinService {
+  final Dio dio;
   String _ip = dotenv.env['APP_IP']!;
+  JoinService({Dio? dio}) : dio = dio ?? Dio();
   void join(int id) async {
     SecureStorage secure = new SecureStorage();
     String userId = await secure.readSecureDataId();
     //!Cambiar a id de usuario
     String _url = 'http://$_ip/matches/$id/join/$userId';
-    var dio = Dio();
+
     //!Sin autorizacion por token
     Map<String, String> headers = {
       'Content.Type': 'application/json',
