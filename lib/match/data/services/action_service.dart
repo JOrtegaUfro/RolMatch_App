@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/material.dart';
 
 class ActionService {
   final Dio dio;
   String _ip = dotenv.env['APP_IP']!;
   ActionService({Dio? dio}) : dio = dio ?? Dio();
-  void reportUser(int id) async {
+  Future<bool> reportUser(int id) async {
     String _url = 'http://$_ip/users/report/$id';
 
     Map<String, String> headers = {
@@ -18,12 +19,13 @@ class ActionService {
         headers: {'Content-Type': 'application/json'},
       ),
     );
-    print("POST POST");
+
     if (response.statusCode == 200 || response.statusCode == 201) {
-      print("REPORTADO CORRECTAMENTE");
+      return true;
     } else {
       var error = response.data;
-      print("ERROR DE SOLICITUD $error");
+      debugPrint("ERROR DE SOLICITUD $error");
+      return false;
     }
   }
 }
