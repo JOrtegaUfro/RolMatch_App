@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,8 +12,10 @@ import 'package:rol_match/user/data/storage/secure_storage.dart';
 class AdvancedService {
   final Dio dio;
   final SharedPreferences? sharedPreferences;
+  final SecureStorage? secureStorage;
   String _ip = dotenv.env['APP_IP']!;
-  AdvancedService({Dio? dio, this.sharedPreferences}) : dio = dio ?? Dio();
+  AdvancedService({Dio? dio, this.sharedPreferences, this.secureStorage})
+      : dio = dio ?? Dio();
 
   //
   //
@@ -36,7 +38,7 @@ class AdvancedService {
   }
 
   Future<List<Player>> getAllMatchPlayers() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = sharedPreferences ?? await SharedPreferences.getInstance();
     int id = prefs.getInt('advanced_match_id')!;
     String _url = 'http://$_ip/games/$id/players';
     dio.options.headers['Content-Type'] = 'application/json';
@@ -51,11 +53,11 @@ class AdvancedService {
       return players;
     }
 
-    throw Exception('ERRROR Fallo carga de jugadores de un partido');
+    throw Exception('ERROR Fallo carga de jugadores de un partido');
   }
 
-  void deleteMatch() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+  Future<bool> deleteMatch() async {
+    final prefs = sharedPreferences ?? await SharedPreferences.getInstance();
     int id = prefs.getInt('advanced_match_id')!;
     String _url = 'http://$_ip/games/$id';
 
@@ -70,18 +72,20 @@ class AdvancedService {
         headers: {'Content-Type': 'application/json'},
       ),
     );
-    print("POST POST");
+
     if (response.statusCode == 200 || response.statusCode == 201) {
-      print("ELIMNADO CORRECTAMENTE");
+      return true;
     } else {
       var error = response.data;
-      print("ERROR DE SOLICITUD $error");
+      debugPrint("ERROR DE SOLICITUD $error");
+      return false;
     }
   }
 
-  void leaveMatch() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    SecureStorage secure = new SecureStorage();
+  Future<bool> leaveMatch() async {
+    final prefs = sharedPreferences ?? await SharedPreferences.getInstance();
+    final secure = secureStorage ?? await SecureStorage();
+
     String userId = await secure.readSecureDataId();
     int id = prefs.getInt('advanced_match_id')!;
     String _url = 'http://$_ip/games/$id/leave/$userId';
@@ -99,10 +103,11 @@ class AdvancedService {
     );
     print("POST POST");
     if (response.statusCode == 200 || response.statusCode == 201) {
-      print("ABANDONADO CORRECTAMENTE");
+      return true;
     } else {
       var error = response.data;
-      print("ERROR DE SOLICITUD $error");
+      debugPrint("ERROR DE SOLICITUD $error");
+      return false;
     }
   }
 }

@@ -8,7 +8,7 @@ class SearchDialogs {
   //!Colocar dialogos de Vista Buscar Partida aqui
   JoinService join = new JoinService();
   void search(BuildContext context, String sport) {
-    final BuscarPartidoService partidoService = BuscarPartidoService();
+    final BuscarPartidaService partidoService = BuscarPartidaService();
 
     // Mostrar carga
     _showLoadingDialog(context);

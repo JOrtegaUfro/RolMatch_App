@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import "package:flutter/material.dart";
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rol_match/match/domain/models/joined_match.dart';
@@ -7,19 +8,23 @@ import 'package:geolocator/geolocator.dart';
 import 'package:rol_match/match/domain/models/map_match.dart';
 import 'package:rol_match/user/data/storage/secure_storage.dart';
 
-class BuscarPartidoService {
+class BuscarPartidaService {
   String _ip = dotenv.env['APP_IP']!;
 
-  var dio = Dio();
-  SecureStorage secure = new SecureStorage();
+  final Dio dio;
+  final SharedPreferences? sharedPreferences;
+  final SecureStorage? secureStorage;
 
+  BuscarPartidaService({Dio? dio, this.sharedPreferences, this.secureStorage})
+      : dio = dio ?? Dio();
   Future<List<MapMatch>> findMatchs(String game) async {
+    final secure = secureStorage ?? await SecureStorage();
     print("APP_IP is $_ip");
     //!Cambiar a id de usuario
     //
     String userId = await secure.readSecureDataId();
     var userIdInt = int.parse(userId);
-    String _url = 'http://$_ip/matches/userSearch/$userId';
+    String _url = 'http://$_ip/games/userSearch/$userId';
     //
     //
     //--
@@ -34,40 +39,41 @@ class BuscarPartidoService {
     //
     //
     //---
-
+    var response;
     try {
-      var response = await dio.get(
+      response = await dio.get(
         _url,
         data: body,
         options: Options(
           headers: {'Content-Type': 'application/json'},
         ),
       );
-
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        List<dynamic> jsonResponse = response.data;
-        List<MapMatch> matches =
-            jsonResponse.map((json) => MapMatch.fromJson(json)).toList();
-
-        return matches;
-      } else {
-        var error = response.data;
-      }
     } catch (e) {
+      debugPrint(e.toString());
       return <MapMatch>[];
     }
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      List<dynamic> jsonResponse = response.data;
+      List<MapMatch> matches =
+          jsonResponse.map((json) => MapMatch.fromJson(json)).toList();
 
-    throw Exception('ERRROR Fallo carga de partidos');
+      return matches;
+    } else {
+      var error = response.data;
+      debugPrint(error.toString());
+      throw Exception('ERRROR Fallo carga de partidos');
+    }
   }
 
   Future<JoinedMatch> findNearestMatch(String game) async {
+    final secure = secureStorage ?? await SecureStorage();
     String userId = await secure.readSecureDataId();
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     double longitud = await prefs.getDouble('user_sesion_longitud')!;
     double latitud = await prefs.getDouble('user_sesion_latitud')!;
     String _url = 'http://$_ip/matches/nearestMatch/1';
-    var dio = Dio();
+
     var userIdInt = int.parse(userId);
 
     Map<String, String> headers = {

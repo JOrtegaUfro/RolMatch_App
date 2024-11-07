@@ -1,19 +1,23 @@
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
 class LocationSearch {
-  void location(String location) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final Dio dio;
+  final SharedPreferences? sharedPreferences;
 
+  LocationSearch({Dio? dio, this.sharedPreferences}) : dio = dio ?? Dio();
+  Future<void> location(String location) async {
+    final prefs = sharedPreferences ?? await SharedPreferences.getInstance();
     String searchLocation = replaceLocation(location);
     String endpoint =
         "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=$searchLocation";
 
     try {
-      var response = await http.get(Uri.parse(endpoint));
-      var body = jsonDecode(response.body);
+      var response = await dio.get(endpoint);
+      var body = jsonDecode(response.data);
       if (body is List && body.isNotEmpty) {
         var firstResult = body[0];
         var latitude = double.parse(firstResult["lat"]);

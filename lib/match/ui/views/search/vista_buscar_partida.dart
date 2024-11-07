@@ -18,7 +18,7 @@ class VistaBuscarPartida extends StatefulWidget {
 
 class VistaBuscarPartidaState extends State<VistaBuscarPartida> {
   late String game;
-  final BuscarPartidoService partidoService = new BuscarPartidoService();
+  final BuscarPartidaService partidoService = new BuscarPartidaService();
   late Future<List<dynamic>> futureMatches = Future.value([]);
 
   Future<void> _loadgame() async {
