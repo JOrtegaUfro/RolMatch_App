@@ -70,7 +70,7 @@ class Match {
   }
 
   set totalPlayer(int? players) {
-    _totalSlots = players;
+    _totalPlayers = players;
   }
 
   set userName(String? value) {

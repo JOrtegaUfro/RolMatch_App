@@ -51,4 +51,26 @@ void main() {
     expect(matchJson['playerSlots'], 5);
     expect(matchJson['totalPlayers'], 20);
   });
+
+  testWidgets('Tests para modelo de match, setters',
+      (WidgetTester tester) async {
+    final match = Match();
+    match.latitud = 324342.43;
+    match.longitud = 234432.54;
+    match.date = "14-06-2024";
+    match.duration = "60 minutos";
+    match.hora = "20:30";
+    match.type = "Tipo 1";
+    match.totalSlots = 6;
+    match.totalPlayer = 14;
+
+    expect(match.latitud, 324342.43);
+    expect(match.longitud, 234432.54);
+    expect(match.date, "14-06-2024");
+    expect(match.duration, "60 minutos");
+    expect(match.hora, "20:30");
+    expect(match.type, "Tipo 1");
+    expect(match.totalSlots, 6);
+    expect(match.totalPlayers, 14);
+  });
 }

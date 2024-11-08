@@ -7,19 +7,19 @@ import 'package:rol_match/match/domain/create/notifications_services.dart';
 class SearchDialogs {
   //!Colocar dialogos de Vista Buscar Partida aqui
   JoinService join = new JoinService();
-  void search(BuildContext context, String sport) {
+  void search(BuildContext context, String game) {
     final BuscarPartidaService partidoService = BuscarPartidaService();
 
     // Mostrar carga
     _showLoadingDialog(context);
 
-    partidoService.findNearestMatch(sport).then((JoinedMatch match) {
+    partidoService.findNearestMatch(game).then((JoinedMatch match) {
       //Cerrar
       Navigator.of(context).pop();
 
       // Mostrar el diálogo
       _showSearchDialog(context, match.title!, match.id!);
-      mostrarNotifications(sport);
+      mostrarNotifications(game);
     }).catchError((error) {
       // Cerrar el diálogo de carga
       Navigator.of(context).pop();

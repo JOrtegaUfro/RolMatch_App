@@ -78,7 +78,7 @@ class MapMatch {
   }
 
   set totalPlayer(int? players) {
-    _totalSlots = players;
+    _totalPlayers = players;
   }
 
   set description(String? value) {

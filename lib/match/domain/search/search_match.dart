@@ -8,8 +8,8 @@ class SearchMatch {
   List<Marker> OwnerMatches(BuildContext context, List<dynamic> matches) {
     List<Marker> marcadores = [];
     matches.forEach((match) {
-      String sport = match.sport;
-      String typeMatch = "partido de $sport";
+      String type = match.type;
+      String typeMatch = "partida de $type";
       final tempMatch = Marker(
         point: LatLng(match.latitud, match.longitud),
         height: 40,
@@ -20,7 +20,7 @@ class SearchMatch {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text(match.description),
-                content: Text(match.sport),
+                content: Text(match.type),
                 actions: [
                   TextButton(
                     onPressed: () {
