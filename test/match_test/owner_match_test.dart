@@ -30,4 +30,28 @@ void main() {
     expect(ownerMatch.totalSlots, 6);
     expect(ownerMatch.totalPlayers, 14);
   });
+
+  testWidgets('Tests para modelo de ownerMatch, setters',
+      (WidgetTester tester) async {
+    final ownerMatch = OwnerMatch();
+    ownerMatch.id = 1;
+    ownerMatch.latitud = 324342.43;
+    ownerMatch.longitud = 234432.54;
+    ownerMatch.date = "14-06-2024";
+    ownerMatch.duration = "60 minutos";
+    ownerMatch.hora = "20:30";
+    ownerMatch.type = "Tipo 1";
+    ownerMatch.totalSlots = 6;
+    ownerMatch.totalPlayer = 14;
+
+    expect(ownerMatch.id, 1);
+    expect(ownerMatch.latitud, 324342.43);
+    expect(ownerMatch.longitud, 234432.54);
+    expect(ownerMatch.date, "14-06-2024");
+    expect(ownerMatch.duration, "60 minutos");
+    expect(ownerMatch.hora, "20:30");
+    expect(ownerMatch.type, "Tipo 1");
+    expect(ownerMatch.totalSlots, 6);
+    expect(ownerMatch.totalPlayers, 14);
+  });
 }

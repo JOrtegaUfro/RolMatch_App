@@ -5,10 +5,10 @@ import 'package:rol_match/match/domain/util/time_format.dart';
 //Esta clase se encarga de la logica de guardado de el formulario
 class FormSave {
   //Sel almacena el deporte (para el fomulario)
-  void saveSport(String sport) async {
+  void saveGame(String game) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    prefs.setString("deporte", sport);
+    prefs.setString("game", game);
   }
 
 //Se almacena la duracion del partido(del formulario de creación)

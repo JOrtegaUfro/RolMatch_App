@@ -3,8 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rol_match/match/domain/create/form_save.dart';
 
 class GameSelector extends StatefulWidget {
-  const GameSelector({super.key});
-
+  const GameSelector({super.key, this.sharedPreferences});
+  final SharedPreferences? sharedPreferences;
   @override
   State<GameSelector> createState() {
     return _GameSelectorState();
@@ -17,16 +17,14 @@ class _GameSelectorState extends State<GameSelector> {
   FormSave _formSave = new FormSave();
 
   void dropDownCallback(String? selectedValue) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs =
+        widget.sharedPreferences ?? await SharedPreferences.getInstance();
     if (selectedValue is String) {
       setState(() {
         _dropDownValue = selectedValue;
         if (_dropDownValue != null) {
-          _formSave.saveSport(_dropDownValue!);
-          print("INTENTO INTENTO");
+          _formSave.saveGame(_dropDownValue!);
           prefs.setString('game_selector_map', _dropDownValue!);
-          String sport = prefs.getString('game_selector_map')!;
-          print("SET SET $sport");
         }
       });
     }

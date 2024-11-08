@@ -5,6 +5,8 @@ import 'package:rol_match/user/ui/views/profile/vista_player.dart';
 import 'package:rol_match/user/ui/views/user_model.dart';
 
 class JugadorModel {
+  final ActionService? actionService;
+  JugadorModel({this.actionService});
   Widget Jugador(BuildContext context, String name, int id) {
     final ThemeData theme = Theme.of(context);
     return Container(
@@ -96,7 +98,7 @@ class JugadorModel {
   }
 
   void showConfirmationDialog(BuildContext context, String action, int id) {
-    ActionService service = new ActionService();
+    final service = actionService ?? ActionService();
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(

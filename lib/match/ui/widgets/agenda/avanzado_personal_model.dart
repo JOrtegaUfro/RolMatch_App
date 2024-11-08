@@ -9,17 +9,20 @@ import 'package:rol_match/match/ui/widgets/agenda/texts/text_model.dart';
 class AvanzadoPersonalModel extends StatelessWidget {
   const AvanzadoPersonalModel({
     super.key,
+    this.advancedService,
   });
+  final AdvancedService? advancedService;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    return Opciones(context);
+    return Opciones(context, advancedServiceInstance: advancedService);
   }
 }
 
-Widget Opciones(BuildContext context) {
-  AdvancedService advancedService = new AdvancedService();
+Widget Opciones(BuildContext context,
+    {required AdvancedService? advancedServiceInstance}) {
+  final advancedService = advancedServiceInstance ?? AdvancedService();
   return FutureBuilder(
     future: advancedService.getMatch(),
     builder: (context, AsyncSnapshot<JoinedMatch> snapshot) {
