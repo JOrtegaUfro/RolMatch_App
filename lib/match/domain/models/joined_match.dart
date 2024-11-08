@@ -82,7 +82,7 @@ class JoinedMatch {
   }
 
   set totalPlayer(int? players) {
-    _totalSlots = players;
+    _totalPlayers = players;
   }
 
   //! Obtiene partido en base a estructura del json

@@ -32,4 +32,30 @@ void main() {
     expect(joinedMatch.totalSlots, 6);
     expect(joinedMatch.totalPlayers, 14);
   });
+
+  testWidgets('Tests para modelo de joinedMatch, setters',
+      (WidgetTester tester) async {
+    final joinedMatch = JoinedMatch();
+    joinedMatch.id = 1;
+    joinedMatch.title = "Fútbol 7v7 user3";
+    joinedMatch.latitud = 324342.43;
+    joinedMatch.longitud = 234432.54;
+    joinedMatch.date = "14-06-2024";
+    joinedMatch.duration = "60 minutos";
+    joinedMatch.hora = "20:30";
+    joinedMatch.type = "Tipo 1";
+    joinedMatch.totalSlots = 6;
+    joinedMatch.totalPlayer = 14;
+
+    expect(joinedMatch.id, 1);
+    expect(joinedMatch.title, "Fútbol 7v7 user3");
+    expect(joinedMatch.latitud, 324342.43);
+    expect(joinedMatch.longitud, 234432.54);
+    expect(joinedMatch.date, "14-06-2024");
+    expect(joinedMatch.duration, "60 minutos");
+    expect(joinedMatch.hora, "20:30");
+    expect(joinedMatch.type, "Tipo 1");
+    expect(joinedMatch.totalSlots, 6);
+    expect(joinedMatch.totalPlayers, 14);
+  });
 }

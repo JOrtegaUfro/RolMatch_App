@@ -2,6 +2,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rol_match/map/data/services/location_search.dart';
 
 class LocationCoordinate {
+  final SharedPreferences? sharedPreferences;
+  LocationCoordinate({this.sharedPreferences});
   Future<void> saveCoordinate(String location) async {
     LocationSearch locationSearch = new LocationSearch();
     locationSearch.location(location);
@@ -25,9 +27,9 @@ class LocationCoordinate {
     return 0;
   }
 
-  void setCoordinate(double lon, double lat) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    print("SE GUARDA $lon $lat");
+  Future<void> setCoordinate(double lon, double lat) async {
+    final prefs = sharedPreferences ?? await SharedPreferences.getInstance();
+
     prefs.setDouble("longitud", lon);
     prefs.setDouble("latitud", lat);
   }
