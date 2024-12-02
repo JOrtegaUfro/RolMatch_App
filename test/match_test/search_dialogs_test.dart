@@ -6,10 +6,20 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
+import 'package:mockito/mockito.dart';
+import 'package:rol_match/match/data/services/buscar_partida_service.dart';
+import 'package:rol_match/match/data/services/join_service.dart';
 
 import 'package:rol_match/match/domain/dialogs/search_dialogs.dart';
 
+import '../secure_storage_init_test.mocks.dart';
+
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  late Dio dio;
+  late DioAdapter dioAdapter;
+  late JoinService joinService;
+  late BuscarPartidaService buscarPartidoService;
   setUp(() async {
     debugPrint("Enviorment");
 
@@ -76,5 +86,63 @@ void main() {
 
     expect(find.byType(AlertDialog), findsOneWidget);
     expect(find.text('Cargando...'), findsOneWidget);
+  });
+
+  testWidgets(
+      'El diálogo de carga y maneja la respuesta incluye diálogos privados, presiona Aceptar',
+      (WidgetTester tester) async {
+    SearchDialogs searchDialogs = SearchDialogs();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (BuildContext context) {
+            return ElevatedButton(
+              onPressed: () {
+                searchDialogs.testShowSearchDialog(context, "TitleTest", 1);
+              },
+              child: const Text('Iniciar búsqueda'),
+            );
+          },
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Iniciar búsqueda'));
+    await tester.pump();
+
+    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(find.text('TitleTest'), findsOneWidget);
+
+    await tester.tap(find.text('Aceptar'));
+  });
+
+  testWidgets(
+      'El diálogo de carga y maneja la respuesta incluye diálogos privados, Presiona Cancelar',
+      (WidgetTester tester) async {
+    SearchDialogs searchDialogs = SearchDialogs();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (BuildContext context) {
+            return ElevatedButton(
+              onPressed: () {
+                searchDialogs.testShowSearchDialog(context, "TitleTest", 1);
+              },
+              child: const Text('Iniciar búsqueda'),
+            );
+          },
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('Iniciar búsqueda'));
+    await tester.pump();
+
+    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(find.text('TitleTest'), findsOneWidget);
+
+    await tester.tap(find.text('Cancelar'));
   });
 }

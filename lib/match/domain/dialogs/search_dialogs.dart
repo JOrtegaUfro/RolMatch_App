@@ -6,9 +6,13 @@ import 'package:rol_match/match/domain/create/notifications_services.dart';
 
 class SearchDialogs {
   //!Colocar dialogos de Vista Buscar Partida aqui
-  JoinService join = new JoinService();
+  SearchDialogs({this.givenService, this.givenSearchService});
+
+  final JoinService? givenService;
+  final BuscarPartidaService? givenSearchService;
+
   void search(BuildContext context, String game) {
-    final BuscarPartidaService partidoService = BuscarPartidaService();
+    final partidoService = givenSearchService ?? BuscarPartidaService();
 
     // Mostrar carga
     _showLoadingDialog(context);
@@ -67,6 +71,7 @@ class SearchDialogs {
 
   //Dialog que muestra la partida encontrada y permite unirse a esta
   Future _showSearchDialog(BuildContext context, String title, int id) {
+    final join = givenService ?? JoinService();
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -91,4 +96,8 @@ class SearchDialogs {
       ),
     );
   }
+
+  @visibleForTesting
+  Future testShowSearchDialog(BuildContext context, String title, int id) =>
+      _showSearchDialog(context, title, id);
 }

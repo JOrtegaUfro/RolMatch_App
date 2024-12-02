@@ -2,29 +2,43 @@ import 'package:flutter/material.dart';
 
 class PlayerImage {
   //Imagen default de jugador
-  Widget defaultImage(BuildContext context, String picture) {
+  Widget _standarImage(BuildContext context, String picture,
+      {ImageProvider? testableImage}) {
     return CircleAvatar(
       radius: 70,
       backgroundColor: Colors.amber,
-      backgroundImage: NetworkImage(picture),
+      backgroundImage: testableImage ?? NetworkImage(picture),
     );
   }
 
+  Widget defaultImage(BuildContext context, String picture) {
+    return _standarImage(context, picture);
+  }
+
   //Imagen de perfil de jugador
-  Widget profileImage(String picture) {
+  Widget _profileImage(String picture, ImageProvider? testableImage) {
     if (picture != null) {
       return CircleAvatar(
         radius: 70,
         backgroundColor: Colors.amber,
-        backgroundImage: NetworkImage(picture),
+        backgroundImage: testableImage ?? NetworkImage(picture),
       );
     } else {
       return CircleAvatar(
         radius: 70,
         backgroundColor: Colors.amber,
-        backgroundImage: NetworkImage(
-            "https://media.4-paws.org/b/e/2/d/be2d88ceb9613ac5066bd11dd950faaf2671bef7/VIER%20PFOTEN_2019-03-15_001-1998x1999-600x600.jpg"),
+        backgroundImage:
+            testableImage ?? NetworkImage("https://picsum.photos/600/600"),
       );
     }
   }
+
+  @visibleForTesting
+  Widget testableProfileImage(String picture, ImageProvider? testableImage) =>
+      _profileImage(picture, testableImage);
+
+  @visibleForTesting
+  Widget testableStandarImage(
+          BuildContext context, String picture, ImageProvider? testableImage) =>
+      _standarImage(context, picture, testableImage: testableImage);
 }

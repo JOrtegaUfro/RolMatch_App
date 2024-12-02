@@ -95,7 +95,7 @@ class OwnerPartidoList {
     matches.forEach((match) {
       String type = match.type;
       String typeMatch = "partido de $type";
-      final tempMatch = owner.Match(
+      final tempMatch = owner.match(
           context,
           typeMatch,
           match.hora,
@@ -116,7 +116,7 @@ class OwnerPartidoList {
     matches.forEach((match) {
       String type = match.type;
       String typeMatch = "partido de $type";
-      final tempMatch = owner.JoinedMatch(
+      final tempMatch = owner.joinedMatch(
           context,
           typeMatch,
           match.hora,

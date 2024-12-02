@@ -6,9 +6,47 @@ import 'package:rol_match/map/ui/widgets/partido_map_container.dart';
 import 'package:rol_match/match/ui/widgets/agenda/texts/text_model.dart';
 
 class OwnerMatches {
-  Widget Match(BuildContext context, String text, String hora, String duration,
+  Widget match(BuildContext context, String text, String hora, String duration,
       String totalPlayers, int id, double latitud, double longitud) {
+    return _matchMaker(
+      context,
+      text,
+      hora,
+      duration,
+      totalPlayers,
+      id,
+      latitud,
+      longitud,
+    );
+  }
+
+  @visibleForTesting
+  Widget testableMatchMaker(
+          BuildContext context,
+          String text,
+          String hora,
+          String duration,
+          String totalPlayers,
+          int id,
+          double latitud,
+          double longitud,
+          {Widget? testableContainer}) =>
+      _matchMaker(
+          context, text, hora, duration, totalPlayers, id, latitud, longitud,
+          testableContainer: testableContainer);
+
+  Widget _matchMaker(
+      BuildContext context,
+      String text,
+      String hora,
+      String duration,
+      String totalPlayers,
+      int id,
+      double latitud,
+      double longitud,
+      {Widget? testableContainer}) {
     final ThemeData theme = Theme.of(context);
+
     return Container(
       height: 600.0,
       margin: const EdgeInsets.all(15.0),
@@ -33,15 +71,16 @@ class OwnerMatches {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          PartidoMapContainer(latitud: latitud, longitud: longitud),
+          testableContainer ??
+              PartidoMapContainer(latitud: latitud, longitud: longitud),
           const SizedBox(height: 20),
-          Body(context, text, hora, duration, totalPlayers, id),
+          body(context, text, hora, duration, totalPlayers, id),
         ],
       ),
     );
   }
 
-  Widget JoinedMatch(
+  Widget joinedMatch(
       BuildContext context,
       String text,
       String hora,
@@ -78,14 +117,14 @@ class OwnerMatches {
         children: [
           PartidoMapContainer(latitud: latitud, longitud: longitud),
           const SizedBox(height: 20),
-          BodyJoined(context, title, text, hora, duration, totalPlayers, id),
+          bodyJoined(context, title, text, hora, duration, totalPlayers, id),
         ],
       ),
     );
   }
 
 //!Redirigir correctamente
-  Widget Body(BuildContext context, String text, String hora, String duration,
+  Widget body(BuildContext context, String text, String hora, String duration,
       String totalPlayers, int id) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,7 +167,7 @@ class OwnerMatches {
     );
   }
 
-  Widget BodyJoined(BuildContext context, String title, String text,
+  Widget bodyJoined(BuildContext context, String title, String text,
       String hora, String duration, String totalPlayers, int id) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
