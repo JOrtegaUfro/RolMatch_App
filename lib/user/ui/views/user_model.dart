@@ -30,9 +30,10 @@ class UserModel {
   }
 
   //Modelo de jugador de partido
-  Widget playerModel(
-      BuildContext context, int id, String picture, String firstName) {
-    PlayerImage playerImage = new PlayerImage();
+  Widget _privatePlayerModel(
+      BuildContext context, int id, String picture, String firstName,
+      {PlayerImage? testPlayerImage}) {
+    PlayerImage playerImage = testPlayerImage ?? new PlayerImage();
     return Scaffold(
       appBar: AppBar(
         title: Text('Jugador del partido'),
@@ -54,4 +55,15 @@ class UserModel {
       ]),
     );
   }
+
+  Widget playerModel(
+      BuildContext context, int id, String picture, String firstName) {
+    return _privatePlayerModel(context, id, picture, firstName);
+  }
+
+  @visibleForTesting
+  testPlayerModel(BuildContext context, int id, String picture,
+          String firstName, PlayerImage playerImage) =>
+      _privatePlayerModel(context, id, picture, firstName,
+          testPlayerImage: playerImage);
 }

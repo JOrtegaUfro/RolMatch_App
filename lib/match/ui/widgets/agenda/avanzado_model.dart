@@ -14,12 +14,23 @@ class AvanzadoModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    return opciones(context);
+    return options(context);
   }
+
+  @visibleForTesting
+  Future testShowLeaveDialog(BuildContext context, AdvancedService service) =>
+      _showLeaveDialog(context, service: service);
+
+  @visibleForTesting
+  Widget testOptionSelector(BuildContext context) => _optionSelector(context);
+  @visibleForTesting
+  Widget testPartidoContainer(BuildContext context, String title, String type,
+          String duration, int totalPlayers) =>
+      _partidoContainer(context, title, type, duration, totalPlayers);
 }
 
 //Opciones de vista avanzada
-Widget opciones(BuildContext context) {
+Widget options(BuildContext context) {
   AdvancedService advancedService = new AdvancedService();
   return FutureBuilder(
     future: advancedService.getMatch(),
@@ -30,7 +41,7 @@ Widget opciones(BuildContext context) {
         return Column(children: [
           _partidoContainer(context, match.title!, match.type!, match.duration!,
               match.totalPlayers!),
-          _opcionSelector(context)
+          _optionSelector(context)
         ]);
       } else if (snapshot.hasError) {
         return Text('Error: ${snapshot.error}');
@@ -74,7 +85,7 @@ Widget _partidoContainer(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextModel(
-                text: "Partido de $type", size: 20.0, color: Colors.white),
+                text: "Partida de $type", size: 20.0, color: Colors.white),
             TextModel(text: title, size: 15.0, color: Colors.white),
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               TextModel(
@@ -92,7 +103,7 @@ Widget _partidoContainer(
 }
 
 //Selector de opción, (tipo de abandono)
-Widget _opcionSelector(context) {
+Widget _optionSelector(context) {
   final ThemeData theme = Theme.of(context);
   return Container(
     height: 250.0,
@@ -151,8 +162,8 @@ Widget _opcionSelector(context) {
 }
 
 //Dialog de abandonar partida
-Future _showLeaveDialog(BuildContext context) {
-  AdvancedService advancedService = new AdvancedService();
+Future _showLeaveDialog(BuildContext context, {AdvancedService? service}) {
+  final advancedService = service ?? new AdvancedService();
   return showDialog(
     context: context,
     builder: (context) => AlertDialog(
