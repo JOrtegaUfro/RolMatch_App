@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../../../report_style.css">
+  <title class="headTitle">Coverage Report - lcov.info</title>
+</head>
+
+<body>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td class="title">Code Coverage Report</td>
+      </tr>
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+
+      <tr>
+        <td width="100%">
+          <table cellpadding="1" border="0" width="100%">
+            <tbody>
+              <tr>
+                <td width="10%" class="headerItem">Current view:</td>
+                <td width="35%" class="headerValue currentFileName">
+                  <a class="topLevelAnchor" href="../../../../index.html">
+                    top level
+                  </a>
+                  -
+                  <a class="currentDirPath" href="index.html">lib/match/ui/views/search</a> - vista_buscar_partida.dart</td>
+                <td width="5%"></td>
+                <td width="15%"></td>
+                <td width="10%" class="headerCovTableHead">Hit</td>
+                <td width="10%" class="headerCovTableHead">Total</td>
+                <td width="15%" class="headerCovTableHead">Coverage</td>
+              </tr>
+              <tr>
+                <td class="headerItem">Test:</td>
+                <td class="headerValue traceFileName">lcov.info</td>
+                <td></td>
+                <td class="headerItem">Lines:</td>
+                <td class="headerCovTableEntry linesHit">30</td>
+                <td class="headerCovTableEntry linesFound">56</td>
+                <td class="covValue headerCovTableEntryLo">53.57 %</td>
+              </tr>
+              <tr>
+                <td class="headerItem">Date:</td>
+                <td class="headerValue lastTraceFileModificationDate">2024-12-12 17:26:26.000</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td height="3px"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td>
+          <pre class="sourceHeading">          Line data    Source code</pre>
+          <pre class="source"><a name="replace.with.line.number"><span class="lineNum">       1 </span><span class="sourceLine">            : import 'package:flutter/material.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       2 </span><span class="sourceLine">            : import 'package:flutter_map/flutter_map.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       3 </span><span class="sourceLine">            : import 'package:shared_preferences/shared_preferences.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       4 </span><span class="sourceLine">            : import 'package:rol_match/match/data/services/buscar_partida_service.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       5 </span><span class="sourceLine">            : import 'package:rol_match/match/domain/dialogs/search_dialogs.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       6 </span><span class="sourceLine">            : import 'package:rol_match/match/domain/maps/search_maps.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       7 </span><span class="sourceLine">            : import 'package:rol_match/match/domain/search/search_match.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       8 </span><span class="sourceLine">            : import 'package:rol_match/match/ui/widgets/maps/footer_mapa.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       9 </span><span class="sourceLine">            : import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      10 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      11 </span><span class="sourceLine">            : //!Vista para buscar un partido</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      12 </span><span class="sourceLine">            : class VistaBuscarPartida extends StatefulWidget {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      13 </span><span class="sourceLine lineCov">          2 :   const VistaBuscarPartida({super.key});</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      14 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      15 </span><span class="sourceLine lineCov">          2 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      16 </span><span class="sourceLine lineCov">          2 :   VistaBuscarPartidaState createState() =&gt; VistaBuscarPartidaState();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      17 </span><span class="sourceLine">            : }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      18 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      19 </span><span class="sourceLine">            : class VistaBuscarPartidaState extends State&lt;VistaBuscarPartida&gt; {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      20 </span><span class="sourceLine">            :   late String game;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      21 </span><span class="sourceLine">            :   final BuscarPartidaService partidoService = new BuscarPartidaService();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      22 </span><span class="sourceLine lineCov">          6 :   late Future&lt;List&lt;dynamic&gt;&gt; futureMatches = Future.value([]);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      23 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      24 </span><span class="sourceLine lineNoCov">          0 :   Future&lt;void&gt; _loadgame() async {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      25 </span><span class="sourceLine lineNoCov">          0 :     SharedPreferences prefs = await SharedPreferences.getInstance();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      26 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      27 </span><span class="sourceLine lineNoCov">          0 :     setState(() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      28 </span><span class="sourceLine lineNoCov">          0 :       game = prefs.getString('game_pref')!;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      29 </span><span class="sourceLine lineNoCov">          0 :       futureMatches = partidoService.findMatchs(game);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      30 </span><span class="sourceLine">            :     });</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      31 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      32 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      33 </span><span class="sourceLine lineCov">          2 :   Future&lt;void&gt; _default() async {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      34 </span><span class="sourceLine lineCov">          2 :     SharedPreferences prefs = await SharedPreferences.getInstance();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      35 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine lineNoCov">          0 :     String? storedgame = prefs.getString('game_pref');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine">            :     if (storedgame == null) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineNoCov">          0 :       prefs.setString('game_pref', 'Cthulhu');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine">            :     } else {}</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine lineNoCov">          0 :     setState(() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine lineNoCov">          0 :       game = prefs.getString('game_pref')!;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine lineNoCov">          0 :       futureMatches = partidoService.findMatchs(game);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      43 </span><span class="sourceLine">            :     });</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      44 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      45 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      46 </span><span class="sourceLine lineCov">          2 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      47 </span><span class="sourceLine">            :   void initState() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      48 </span><span class="sourceLine lineCov">          2 :     super.initState();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      49 </span><span class="sourceLine lineCov">          2 :     _default();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      50 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      51 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      52 </span><span class="sourceLine">            :   //dialogs mostrara los dialogos que se muestren al usuario (popup)</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      53 </span><span class="sourceLine">            :   SearchDialogs dialogs = new SearchDialogs();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      54 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      55 </span><span class="sourceLine">            :   /// La función `_reloadView` recupera el juego preferido del usuario de SharedPreferences y actualiza</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      56 </span><span class="sourceLine">            :   /// la vista en consecuencia debido al uso de setState.</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      57 </span><span class="sourceLine lineNoCov">          0 :   Future&lt;void&gt; _reloadView() async {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      58 </span><span class="sourceLine lineNoCov">          0 :     SharedPreferences prefs = await SharedPreferences.getInstance();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      59 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      60 </span><span class="sourceLine lineNoCov">          0 :     setState(() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      61 </span><span class="sourceLine lineNoCov">          0 :       game = prefs.getString('game_pref')!;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      62 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      63 </span><span class="sourceLine lineNoCov">          0 :       futureMatches = partidoService.findMatchs(game);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      64 </span><span class="sourceLine lineNoCov">          0 :       _loadgame();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      65 </span><span class="sourceLine">            :     });</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      66 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      67 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      68 </span><span class="sourceLine">            :   //funcion que declara la ubicacion actual del usuario</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      69 </span><span class="sourceLine lineNoCov">          0 :   void _declareLocation(double longitud, double latitud) async {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      70 </span><span class="sourceLine lineNoCov">          0 :     SharedPreferences prefs = await SharedPreferences.getInstance();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      71 </span><span class="sourceLine lineNoCov">          0 :     prefs.setDouble('user_sesion_longitud', longitud);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      72 </span><span class="sourceLine lineNoCov">          0 :     prefs.setDouble('user_sesion_latitud', latitud);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      73 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      74 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      75 </span><span class="sourceLine">            :   //Se construye la vista de Buscar partida</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      76 </span><span class="sourceLine lineCov">          2 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      77 </span><span class="sourceLine">            :   Widget build(BuildContext context) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      78 </span><span class="sourceLine lineCov">          2 :     return Scaffold(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      79 </span><span class="sourceLine lineCov">          2 :       body: Stack(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      80 </span><span class="sourceLine lineCov">          2 :         children: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      81 </span><span class="sourceLine lineCov">          2 :           _showMap(),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      82 </span><span class="sourceLine lineCov">          2 :           Column(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      83 </span><span class="sourceLine">            :             mainAxisAlignment: MainAxisAlignment.end,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      84 </span><span class="sourceLine lineCov">          2 :             children: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      85 </span><span class="sourceLine lineCov">          2 :               LiveButton(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      86 </span><span class="sourceLine">            :                 text: "Iniciar",</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      87 </span><span class="sourceLine lineNoCov">          0 :                 onTap: () async {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      88 </span><span class="sourceLine lineNoCov">          0 :                   await partidoService.getLocation().then((value) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      89 </span><span class="sourceLine lineNoCov">          0 :                     _declareLocation(value.longitude, value.latitude);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      90 </span><span class="sourceLine">            :                   });</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      91 </span><span class="sourceLine lineNoCov">          0 :                   await _reloadView();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      92 </span><span class="sourceLine lineNoCov">          0 :                   dialogs.search(context, game);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      93 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      94 </span><span class="sourceLine">            :                   // _showSearchDialog(context);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      95 </span><span class="sourceLine">            :                 },</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      96 </span><span class="sourceLine">            :               ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      97 </span><span class="sourceLine lineCov">          2 :               Container(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      98 </span><span class="sourceLine">            :                 alignment: Alignment.bottomCenter,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      99 </span><span class="sourceLine">            :                 child: const FooterMapa(),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     100 </span><span class="sourceLine">            :               ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     101 </span><span class="sourceLine">            :             ],</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     102 </span><span class="sourceLine">            :           ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     103 </span><span class="sourceLine">            :         ],</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     104 </span><span class="sourceLine">            :       ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     105 </span><span class="sourceLine">            :     );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     106 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     107 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">     108 </span><span class="sourceLine">            :   //Esta funcion se encuntra con la vista ya que debe realizarse un Future</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     109 </span><span class="sourceLine">            :   //Se encarga de la vista del mapa y gestiona el estado de la vista si se encuentran partidos</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     110 </span><span class="sourceLine lineCov">          2 :   Widget _showMap() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     111 </span><span class="sourceLine lineCov">          2 :     SearchMaps maps = SearchMaps();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     112 </span><span class="sourceLine lineCov">          2 :     return FutureBuilder&lt;List&lt;dynamic&gt;&gt;(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     113 </span><span class="sourceLine lineCov">          2 :       future: futureMatches,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     114 </span><span class="sourceLine lineCov">          2 :       builder: (context, snapshot) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     115 </span><span class="sourceLine lineCov">          2 :         if (snapshot.hasData &amp;&amp;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     116 </span><span class="sourceLine lineCov">          4 :             snapshot.connectionState == ConnectionState.done) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     117 </span><span class="sourceLine lineCov">          2 :           SearchMatch searchMatch = SearchMatch();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     118 </span><span class="sourceLine">            :           List&lt;Marker&gt; marcadores =</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     119 </span><span class="sourceLine lineCov">          4 :               searchMatch.OwnerMatches(context, snapshot.data!);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     120 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">     121 </span><span class="sourceLine lineCov">          2 :           return maps.VistaMapa(context, marcadores);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     122 </span><span class="sourceLine lineCov">          2 :         } else if (snapshot.hasError) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     123 </span><span class="sourceLine lineNoCov">          0 :           return Text('Error: ${snapshot.error}');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     124 </span><span class="sourceLine">            :         } else {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     125 </span><span class="sourceLine lineCov">          2 :           return maps.VistaMapaDefault(context);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     126 </span><span class="sourceLine">            :         }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     127 </span><span class="sourceLine">            :       },</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     128 </span><span class="sourceLine">            :     );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     129 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     130 </span><span class="sourceLine">            : }</span>
+</a></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+      <tr>
+        <td class="versionInfo">
+          Generated by:
+          <a href="https://github.com/mrverdant13/coverde" target="_parent">
+            coverde
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+
+
+</body></html>

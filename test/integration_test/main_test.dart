@@ -56,6 +56,14 @@ void main() {
       await find.text('20').should(findsOneWidget);
       await find.text('30').should(findsOneWidget);
       await find.text('60 minutos').should(findsOneWidget);
+      await t.pageBack();
+      await t.pageBack();
+      await t.get(find.text('Buscar Partida')).tap();
+      await t.get(find.byIcon(Icons.settings_applications)).tap();
+      await t.get(find.text('Juego')).tap();
+      await t.get(find.text('Otro')).tap();
+      await t.get(find.text('OK')).tap();
+      // await t.get(find.text('Iniciar').first).tap();
     });
   });
 }

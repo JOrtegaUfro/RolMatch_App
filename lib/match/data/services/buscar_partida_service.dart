@@ -72,7 +72,7 @@ class BuscarPartidaService {
 
     double longitud = await prefs.getDouble('user_sesion_longitud')!;
     double latitud = await prefs.getDouble('user_sesion_latitud')!;
-    String _url = 'http://$_ip/matches/nearestMatch/1';
+    String _url = 'http://$_ip/matches/nearest-game/1';
 
     var userIdInt = int.parse(userId);
 

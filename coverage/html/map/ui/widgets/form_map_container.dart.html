@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../../report_style.css">
+  <title class="headTitle">Coverage Report - lcov.info</title>
+</head>
+
+<body>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td class="title">Code Coverage Report</td>
+      </tr>
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+
+      <tr>
+        <td width="100%">
+          <table cellpadding="1" border="0" width="100%">
+            <tbody>
+              <tr>
+                <td width="10%" class="headerItem">Current view:</td>
+                <td width="35%" class="headerValue currentFileName">
+                  <a class="topLevelAnchor" href="../../../index.html">
+                    top level
+                  </a>
+                  -
+                  <a class="currentDirPath" href="index.html">lib/map/ui/widgets</a> - form_map_container.dart</td>
+                <td width="5%"></td>
+                <td width="15%"></td>
+                <td width="10%" class="headerCovTableHead">Hit</td>
+                <td width="10%" class="headerCovTableHead">Total</td>
+                <td width="15%" class="headerCovTableHead">Coverage</td>
+              </tr>
+              <tr>
+                <td class="headerItem">Test:</td>
+                <td class="headerValue traceFileName">lcov.info</td>
+                <td></td>
+                <td class="headerItem">Lines:</td>
+                <td class="headerCovTableEntry linesHit">8</td>
+                <td class="headerCovTableEntry linesFound">57</td>
+                <td class="covValue headerCovTableEntryLo">14.04 %</td>
+              </tr>
+              <tr>
+                <td class="headerItem">Date:</td>
+                <td class="headerValue lastTraceFileModificationDate">2024-12-12 17:26:26.000</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td height="3px"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td>
+          <pre class="sourceHeading">          Line data    Source code</pre>
+          <pre class="source"><a name="replace.with.line.number"><span class="lineNum">       1 </span><span class="sourceLine">            : import 'package:flutter/material.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       2 </span><span class="sourceLine">            : import 'package:flutter_map/flutter_map.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       3 </span><span class="sourceLine">            : import 'package:latlong2/latlong.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       4 </span><span class="sourceLine">            : import 'package:rol_match/map/data/services/location_search.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       5 </span><span class="sourceLine">            : import 'package:rol_match/map/domain/location_coordinate.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       6 </span><span class="sourceLine">            : import 'package:url_launcher/url_launcher.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       7 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">       8 </span><span class="sourceLine">            : //! Contenedor de sección de formulario respectiva a la búsqueda o soleccion deuna ubicación</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       9 </span><span class="sourceLine">            : class FormMapContainer extends StatefulWidget {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      10 </span><span class="sourceLine lineCov">          1 :   const FormMapContainer({super.key, required this.testing});</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      11 </span><span class="sourceLine">            :   final bool testing;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      12 </span><span class="sourceLine lineCov">          1 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      13 </span><span class="sourceLine">            :   State&lt;FormMapContainer&gt; createState() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      14 </span><span class="sourceLine lineCov">          2 :     return _FormMapContainerState(testing);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      15 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      16 </span><span class="sourceLine">            : }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      17 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      18 </span><span class="sourceLine">            : class _FormMapContainerState extends State&lt;FormMapContainer&gt; {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      19 </span><span class="sourceLine">            :   final TextEditingController _textController = TextEditingController();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      20 </span><span class="sourceLine">            :   final bool testing;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      21 </span><span class="sourceLine">            :   double latitud = 0;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      22 </span><span class="sourceLine">            :   double longitud = 0;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      23 </span><span class="sourceLine">            :   final List&lt;Marker&gt; marcadores = [];</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      24 </span><span class="sourceLine">            :   LocationCoordinate coordinate = new LocationCoordinate();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      25 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      26 </span><span class="sourceLine lineCov">          1 :   _FormMapContainerState(this.testing);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      27 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      28 </span><span class="sourceLine lineCov">          1 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      29 </span><span class="sourceLine">            :   Widget build(BuildContext context) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      30 </span><span class="sourceLine lineCov">          2 :     List&lt;Widget&gt; childrenWidgets = [Container()];</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      31 </span><span class="sourceLine lineCov">          2 :     if (testing == false) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      32 </span><span class="sourceLine lineNoCov">          0 :       childrenWidgets = [_LocationInput(), _MapView()];</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      33 </span><span class="sourceLine">            :     }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      34 </span><span class="sourceLine lineCov">          1 :     return Column(children: childrenWidgets);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      35 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine">            :   //Vista del mapa, obtiene el estado de marcador y se actualiza en base a este</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineNoCov">          0 :   Widget _MapView() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine lineNoCov">          0 :     return Container(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine">            :       width: 400,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine">            :       height: 300,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine lineNoCov">          0 :       child: FlutterMap(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      43 </span><span class="sourceLine lineNoCov">          0 :         options: MapOptions(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      44 </span><span class="sourceLine lineNoCov">          0 :           initialCenter: LatLng(-38.7396500, -72.5984200),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      45 </span><span class="sourceLine">            :           initialZoom: 13.2,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      46 </span><span class="sourceLine lineNoCov">          0 :           onTap: (tapPosition, point) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      47 </span><span class="sourceLine lineNoCov">          0 :             setState(() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      48 </span><span class="sourceLine lineNoCov">          0 :               latitud = point.latitude;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      49 </span><span class="sourceLine lineNoCov">          0 :               longitud = point.longitude;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      50 </span><span class="sourceLine lineNoCov">          0 :               marcadores.clear();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      51 </span><span class="sourceLine lineNoCov">          0 :               coordinate.setCoordinate(longitud, latitud);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      52 </span><span class="sourceLine lineNoCov">          0 :               marcadores.add(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      53 </span><span class="sourceLine lineNoCov">          0 :                 Marker(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      54 </span><span class="sourceLine">            :                   width: 40.0,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      55 </span><span class="sourceLine">            :                   height: 40.0,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      56 </span><span class="sourceLine lineNoCov">          0 :                   point: LatLng(latitud, longitud),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      57 </span><span class="sourceLine lineNoCov">          0 :                   child: Icon(Icons.pin_drop, color: Colors.black),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      58 </span><span class="sourceLine">            :                 ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      59 </span><span class="sourceLine">            :               );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      60 </span><span class="sourceLine">            :             });</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      61 </span><span class="sourceLine">            :           },</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      62 </span><span class="sourceLine">            :         ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      63 </span><span class="sourceLine lineNoCov">          0 :         children: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      64 </span><span class="sourceLine lineNoCov">          0 :           RichAttributionWidget(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      65 </span><span class="sourceLine lineNoCov">          0 :             attributions: [],</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      66 </span><span class="sourceLine">            :           ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      67 </span><span class="sourceLine lineNoCov">          0 :           TileLayer(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      68 </span><span class="sourceLine">            :             urlTemplate:</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      69 </span><span class="sourceLine">            :                 "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      70 </span><span class="sourceLine">            :             userAgentPackageName: 'com.example.app',</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      71 </span><span class="sourceLine">            :           ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      72 </span><span class="sourceLine lineNoCov">          0 :           MarkerLayer(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      73 </span><span class="sourceLine lineNoCov">          0 :             markers: marcadores,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      74 </span><span class="sourceLine">            :           ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      75 </span><span class="sourceLine">            :         ],</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      76 </span><span class="sourceLine">            :       ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      77 </span><span class="sourceLine">            :     );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      78 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      79 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      80 </span><span class="sourceLine">            :   final TextEditingController _textControllerInput = TextEditingController();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      81 </span><span class="sourceLine">            :   //Si se selecciona dentro del mapa una ubicación se actualiza el estado de los marcadores</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      82 </span><span class="sourceLine lineNoCov">          0 :   Widget _LocationInput() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      83 </span><span class="sourceLine lineNoCov">          0 :     return Container(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      84 </span><span class="sourceLine">            :         width: 300,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      85 </span><span class="sourceLine lineNoCov">          0 :         child: Column(children: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      86 </span><span class="sourceLine lineNoCov">          0 :           Row(children: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      87 </span><span class="sourceLine lineNoCov">          0 :             Expanded(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      88 </span><span class="sourceLine lineNoCov">          0 :               child: TextField(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      89 </span><span class="sourceLine lineNoCov">          0 :                 controller: _textControllerInput,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      90 </span><span class="sourceLine">            :                 decoration: const InputDecoration(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      91 </span><span class="sourceLine">            :                   icon: Icon(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      92 </span><span class="sourceLine">            :                     Icons.pin_drop,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      93 </span><span class="sourceLine">            :                     color: Colors.grey,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      94 </span><span class="sourceLine">            :                   ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      95 </span><span class="sourceLine">            :                   border: UnderlineInputBorder(),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      96 </span><span class="sourceLine">            :                   hintText: 'Buscar ubicación',</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      97 </span><span class="sourceLine">            :                 ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      98 </span><span class="sourceLine">            :               ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      99 </span><span class="sourceLine">            :             ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     100 </span><span class="sourceLine lineNoCov">          0 :             TextButton(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     101 </span><span class="sourceLine lineNoCov">          0 :               onPressed: () {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     102 </span><span class="sourceLine lineNoCov">          0 :                 search(_textControllerInput.text);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     103 </span><span class="sourceLine">            :               },</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     104 </span><span class="sourceLine lineNoCov">          0 :               style: ButtonStyle(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     105 </span><span class="sourceLine lineNoCov">          0 :                   backgroundColor: WidgetStateProperty.all(Colors.white)),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     106 </span><span class="sourceLine">            :               child: const Icon(Icons.search),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     107 </span><span class="sourceLine">            :             )</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     108 </span><span class="sourceLine">            :           ]),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     109 </span><span class="sourceLine lineNoCov">          0 :           SizedBox(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     110 </span><span class="sourceLine">            :             height: 20,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     111 </span><span class="sourceLine">            :           )</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     112 </span><span class="sourceLine">            :         ]));</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     113 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     114 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">     115 </span><span class="sourceLine">            :   //Si se utiliza busqueda se actualiza el estado de los marcadores</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     116 </span><span class="sourceLine lineNoCov">          0 :   Future&lt;void&gt; search(String location) async {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     117 </span><span class="sourceLine lineNoCov">          0 :     LocationCoordinate locationCoordinate = LocationCoordinate();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     118 </span><span class="sourceLine lineNoCov">          0 :     await locationCoordinate.saveCoordinate(location);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     119 </span><span class="sourceLine lineNoCov">          0 :     double newLatitud = await locationCoordinate.getLatitude();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     120 </span><span class="sourceLine lineNoCov">          0 :     double newLongitud = await locationCoordinate.getLongitude();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     121 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">     122 </span><span class="sourceLine lineNoCov">          0 :     setState(() {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     123 </span><span class="sourceLine lineNoCov">          0 :       latitud = newLatitud;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     124 </span><span class="sourceLine lineNoCov">          0 :       longitud = newLongitud;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     125 </span><span class="sourceLine lineNoCov">          0 :       print("NEW NEW NEW $newLatitud $newLongitud");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     126 </span><span class="sourceLine lineNoCov">          0 :       marcadores.clear();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     127 </span><span class="sourceLine lineNoCov">          0 :       marcadores.add(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     128 </span><span class="sourceLine lineNoCov">          0 :         Marker(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     129 </span><span class="sourceLine">            :           width: 40.0,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     130 </span><span class="sourceLine">            :           height: 40.0,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     131 </span><span class="sourceLine lineNoCov">          0 :           point: LatLng(latitud, longitud),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     132 </span><span class="sourceLine lineNoCov">          0 :           child: Icon(Icons.pin_drop, color: Colors.black),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     133 </span><span class="sourceLine">            :         ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     134 </span><span class="sourceLine">            :       );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     135 </span><span class="sourceLine">            :     });</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     136 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     137 </span><span class="sourceLine">            : }</span>
+</a></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+      <tr>
+        <td class="versionInfo">
+          Generated by:
+          <a href="https://github.com/mrverdant13/coverde" target="_parent">
+            coverde
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+
+
+</body></html>

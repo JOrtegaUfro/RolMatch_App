@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../../../report_style.css">
+  <title class="headTitle">Coverage Report - lcov.info</title>
+</head>
+
+<body>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td class="title">Code Coverage Report</td>
+      </tr>
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+
+      <tr>
+        <td width="100%">
+          <table cellpadding="1" border="0" width="100%">
+            <tbody>
+              <tr>
+                <td width="10%" class="headerItem">Current view:</td>
+                <td width="35%" class="headerValue currentFileName">
+                  <a class="topLevelAnchor" href="../../../index.html">
+                    top level
+                  </a>
+                  -
+                  <a class="currentDirPath" href="index.html">lib/user/ui/views</a> - user_model.dart</td>
+                <td width="5%"></td>
+                <td width="15%"></td>
+                <td width="10%" class="headerCovTableHead">Hit</td>
+                <td width="10%" class="headerCovTableHead">Total</td>
+                <td width="15%" class="headerCovTableHead">Coverage</td>
+              </tr>
+              <tr>
+                <td class="headerItem">Test:</td>
+                <td class="headerValue traceFileName">lcov.info</td>
+                <td></td>
+                <td class="headerItem">Lines:</td>
+                <td class="headerCovTableEntry linesHit">14</td>
+                <td class="headerCovTableEntry linesFound">29</td>
+                <td class="covValue headerCovTableEntryLo">48.28 %</td>
+              </tr>
+              <tr>
+                <td class="headerItem">Date:</td>
+                <td class="headerValue lastTraceFileModificationDate">2024-12-12 17:26:26.000</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td height="3px"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      <tr>
+        <td><br></td>
+      </tr>
+      <tr>
+        <td>
+          <pre class="sourceHeading">          Line data    Source code</pre>
+          <pre class="source"><a name="replace.with.line.number"><span class="lineNum">       1 </span><span class="sourceLine">            : import 'package:flutter/material.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       2 </span><span class="sourceLine">            : import 'package:rol_match/match/domain/models/player.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       3 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">       4 </span><span class="sourceLine">            : import 'package:rol_match/user/data/player_service.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       5 </span><span class="sourceLine">            : import 'package:rol_match/user/data/storage/secure_storage.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       6 </span><span class="sourceLine">            : import 'package:rol_match/user/domain/utils/player_image.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       7 </span><span class="sourceLine">            : import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       8 </span><span class="sourceLine">            : import 'package:rol_match/user/domain/utils/profile_image.dart';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       9 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      10 </span><span class="sourceLine">            : //! Vista de perfil de usuario (jugador del partido)</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      11 </span><span class="sourceLine">            : class UserModel {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      12 </span><span class="sourceLine lineNoCov">          0 :   Widget build(BuildContext context, int userId) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      13 </span><span class="sourceLine lineNoCov">          0 :     SecureStorage secureStorage = new SecureStorage();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      14 </span><span class="sourceLine lineNoCov">          0 :     PlayerService playerService = new PlayerService();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      15 </span><span class="sourceLine lineNoCov">          0 :     return FutureBuilder(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      16 </span><span class="sourceLine lineNoCov">          0 :       future: playerService.getPlayer(userId),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      17 </span><span class="sourceLine lineNoCov">          0 :       builder: (context, AsyncSnapshot&lt;Player&gt; snapshot) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      18 </span><span class="sourceLine lineNoCov">          0 :         if (snapshot.hasData) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      19 </span><span class="sourceLine lineNoCov">          0 :           Player player = snapshot.data! as Player;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      20 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      21 </span><span class="sourceLine lineNoCov">          0 :           return playerModel(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      22 </span><span class="sourceLine lineNoCov">          0 :               context, player.id!, player.picture!, player.nombre!);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      23 </span><span class="sourceLine lineNoCov">          0 :         } else if (snapshot.hasError) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      24 </span><span class="sourceLine lineNoCov">          0 :           return Text('Error: ${snapshot.error}');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      25 </span><span class="sourceLine">            :         } else {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      26 </span><span class="sourceLine">            :           return const CircularProgressIndicator();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      27 </span><span class="sourceLine">            :         }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      28 </span><span class="sourceLine">            :       },</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      29 </span><span class="sourceLine">            :     );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      30 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      31 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      32 </span><span class="sourceLine">            :   //Modelo de jugador de partido</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      33 </span><span class="sourceLine lineCov">          1 :   Widget _privatePlayerModel(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      34 </span><span class="sourceLine">            :       BuildContext context, int id, String picture, String firstName,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      35 </span><span class="sourceLine">            :       {PlayerImage? testPlayerImage}) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine lineNoCov">          0 :     PlayerImage playerImage = testPlayerImage ?? new PlayerImage();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine lineCov">          1 :     return Scaffold(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineCov">          1 :       appBar: AppBar(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine lineCov">          1 :         title: Text('Jugador del partido'),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine">            :         automaticallyImplyLeading: true,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine">            :       ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine">            :       //* Columna que organiza las partes de la vista perfil</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      43 </span><span class="sourceLine lineCov">          2 :       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      44 </span><span class="sourceLine lineCov">          1 :         SizedBox(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      45 </span><span class="sourceLine">            :           height: 30,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      46 </span><span class="sourceLine">            :         ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      47 </span><span class="sourceLine lineCov">          1 :         playerImage.defaultImage(context, picture),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      48 </span><span class="sourceLine lineCov">          1 :         SizedBox(height: 30),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      49 </span><span class="sourceLine lineCov">          1 :         Text(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      50 </span><span class="sourceLine">            :           firstName,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      51 </span><span class="sourceLine lineCov">          1 :           style: TextStyle(fontSize: 30),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      52 </span><span class="sourceLine">            :         ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      53 </span><span class="sourceLine lineCov">          1 :         SizedBox(height: 30),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      54 </span><span class="sourceLine lineCov">          1 :         Spacer()</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      55 </span><span class="sourceLine">            :       ]),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      56 </span><span class="sourceLine">            :     );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      57 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      58 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      59 </span><span class="sourceLine lineNoCov">          0 :   Widget playerModel(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      60 </span><span class="sourceLine">            :       BuildContext context, int id, String picture, String firstName) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      61 </span><span class="sourceLine lineNoCov">          0 :     return _privatePlayerModel(context, id, picture, firstName);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      62 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      63 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      64 </span><span class="sourceLine lineCov">          1 :   @visibleForTesting</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      65 </span><span class="sourceLine">            :   testPlayerModel(BuildContext context, int id, String picture,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      66 </span><span class="sourceLine">            :           String firstName, PlayerImage playerImage) =&gt;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      67 </span><span class="sourceLine lineCov">          1 :       _privatePlayerModel(context, id, picture, firstName,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      68 </span><span class="sourceLine">            :           testPlayerImage: playerImage);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      69 </span><span class="sourceLine">            : }</span>
+</a></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td class="ruler" height="3px"></td>
+      </tr>
+      <tr>
+        <td class="versionInfo">
+          Generated by:
+          <a href="https://github.com/mrverdant13/coverde" target="_parent">
+            coverde
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+
+
+</body></html>
