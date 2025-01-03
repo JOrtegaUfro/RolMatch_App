@@ -34,9 +34,9 @@ class _VistaAuthWebState extends State<VistaAuthWeb> {
           LiveButton(
               text: "Ingresar",
               onTap: () {
-                Navigator.pushNamed(context, '/home');
-                //googleAuth.googleSignIn(context);
-                // Navigator.pushNamed(context, '/authWeb');
+                //Navigator.pushNamed(context, '/home');
+                googleAuth.googleSignIn(context);
+                //Navigator.pushNamed(context, '/authWeb');
               }),
           SizedBox(
             height: 100,

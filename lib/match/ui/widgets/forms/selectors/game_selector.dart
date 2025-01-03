@@ -24,7 +24,7 @@ class _GameSelectorState extends State<GameSelector> {
         _dropDownValue = selectedValue;
         if (_dropDownValue != null) {
           _formSave.saveGame(_dropDownValue!);
-          prefs.setString('game_selector_map', _dropDownValue!);
+          prefs.setString('type', _dropDownValue!);
         }
       });
     }

@@ -9,10 +9,6 @@ class ActionService {
   Future<bool> reportUser(int id) async {
     String _url = 'http://$_ip/users/report/$id';
 
-    Map<String, String> headers = {
-      'Content.Type': 'application/json',
-    };
-
     var response = await dio.patch(
       _url,
       options: Options(

@@ -34,7 +34,8 @@ class FormSave {
   void saveDate(DateTime date) async {
     final prefs = sharedPreferences ?? await SharedPreferences.getInstance();
 
-    String savedDate = "${date.toLocal().day}- ${date.toLocal().month}";
+    String savedDate =
+        "${date.toLocal().day}-${date.toLocal().month}-${date.toLocal().year}";
 
     prefs.setString("date", savedDate);
   }

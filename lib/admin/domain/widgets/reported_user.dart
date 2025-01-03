@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:rol_match/match/data/services/action_service.dart';
-import 'package:rol_match/user/ui/views/profile/vista_player.dart';
-import 'package:rol_match/user/ui/views/user_model.dart';
+import 'package:rol_match/admin/data/services/report_service.dart';
 
-class JugadorModel {
-  final ActionService? actionService;
-  JugadorModel({this.actionService});
+import 'package:rol_match/user/ui/views/profile/vista_player.dart';
+
+class ReportedUser {
+  final ReportService? reportService;
+  ReportedUser({this.reportService});
   Widget Jugador(BuildContext context, String name, int id) {
     final ThemeData theme = Theme.of(context);
     return Container(
@@ -74,9 +74,16 @@ class JugadorModel {
           SimpleDialogOption(
             onPressed: () {
               Navigator.pop(context);
-              showConfirmationDialog(context, 'Reportar', id);
+              showConfirmationDialog(context, 'Eliminar', id);
             },
-            child: const Text('Reportar'),
+            child: const Text('Eliminar'),
+          ),
+          SimpleDialogOption(
+            onPressed: () {
+              Navigator.pop(context);
+              showConfirmationDialog(context, 'Quitar reporte', id);
+            },
+            child: const Text('Quitar reporte'),
           ),
           SimpleDialogOption(
             onPressed: () {
@@ -91,7 +98,7 @@ class JugadorModel {
   }
 
   void showConfirmationDialog(BuildContext context, String action, int id) {
-    final service = actionService ?? ActionService();
+    final service = reportService ?? ReportService();
     showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
@@ -104,8 +111,11 @@ class JugadorModel {
           ),
           TextButton(
             onPressed: () {
-              if (action == "Reportar") {
-                service.reportUser(id);
+              if (action == "Eliminar") {
+                service.deleteUser(id);
+              }
+              if (action == "Quitar reporte") {
+                service.clearUser(id);
               }
 
               print(action);

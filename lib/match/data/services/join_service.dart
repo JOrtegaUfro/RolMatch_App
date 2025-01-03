@@ -12,12 +12,9 @@ class JoinService {
     final secure = secureStorage ?? SecureStorage();
     String userId = await secure.readSecureDataId();
     //!Cambiar a id de usuario
-    String _url = 'http://$_ip/matches/$id/join/$userId';
+    String _url = 'http://$_ip/games/$id/join/$userId';
 
     //!Sin autorizacion por token
-    Map<String, String> headers = {
-      'Content.Type': 'application/json',
-    };
 
     var response = await dio.post(
       _url,

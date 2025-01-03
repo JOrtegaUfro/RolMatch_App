@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Match {
   double? _latitud;
   double? _longitud;
@@ -78,6 +80,19 @@ class Match {
   }
 
   Map<String, dynamic> toJson() {
+    Map<String, dynamic> temp = {
+      "title": "Partido de $_userName",
+      "description": "Partido de fútbol $_totalPlayers jugadores",
+      "duration": _duration,
+      "date": _date,
+      "hour": _hora,
+      "latitude": _latitud,
+      "longitude": _longitud,
+      "playerSlots": _totalSlots,
+      "totalPlayers": _totalPlayers,
+      "type": _type,
+    };
+    debugPrint(temp.toString());
     return {
       "title": "Partido de $_userName",
       "description": "Partido de fútbol $_totalPlayers jugadores",

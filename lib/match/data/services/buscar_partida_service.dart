@@ -72,22 +72,18 @@ class BuscarPartidaService {
 
     double longitud = await prefs.getDouble('user_sesion_longitud')!;
     double latitud = await prefs.getDouble('user_sesion_latitud')!;
-    String _url = 'http://$_ip/matches/nearest-game/1';
+    String _url = 'http://$_ip/games/nearest-game/1';
 
     var userIdInt = int.parse(userId);
 
-    Map<String, String> headers = {
-      'Content.Type': 'application/json',
-    };
-
     String body = json.encode({
       "id": userIdInt,
-      "game": game.toString(),
+      "type": game.toString(),
       "longitude": longitud,
       "latitude": latitud
     });
 
-    print("Enviando $body");
+    print("SENDING $body");
 
     final Duration retryInterval = Duration(seconds: 3);
     final Duration timeoutDuration = Duration(seconds: 30);
@@ -95,7 +91,7 @@ class BuscarPartidaService {
 
     while (DateTime.now().difference(startTime) < timeoutDuration) {
       try {
-        var response = await dio.get(
+        var response = await dio.post(
           _url,
           data: body,
           options: Options(

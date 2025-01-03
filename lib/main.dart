@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:rol_match/admin/ui/vista_admin.dart';
 import 'package:rol_match/authentification/ui/views/vista_auth_web.dart';
 import 'package:rol_match/match/domain/create/notifications_services.dart';
 import 'package:rol_match/match/ui/views/agenda/vista_agenda_partido.dart';
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
         '/vistaAvanzada': (context) => const SafeArea(child: VistaAvanzada()),
         '/vistaAvanzadaPropio': (context) =>
             const SafeArea(child: VistaAvanzadaPersonal()),
+        '/adminHome': (context) => const SafeArea(child: VistaAdmin()),
       },
     );
   }

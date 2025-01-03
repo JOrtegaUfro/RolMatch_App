@@ -24,10 +24,13 @@ class LoginService {
       if (response.statusCode == 200 || response.statusCode == 201) {
         var body = jsonDecode(response.body);
         print("HALLO HALLO ");
+        print(body.toString());
         var name = body["firstName"];
         var picture = body['picture'];
         var id = body['id'];
+        var role = body['role'];
         //!Se almacena informacion del usuario
+        _secureStorage.writeSecureData('role', role);
         _secureStorage.writeSecureData('authorization', token);
         _secureStorage.writeSecureData('name', name);
         _secureStorage.writeSecureData('picture', picture);

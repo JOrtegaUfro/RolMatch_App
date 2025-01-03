@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rol_match/user/data/storage/secure_storage.dart';
+import 'package:rol_match/user/ui/widgets/buttons/admin_button.dart';
 import 'package:rol_match/user/ui/widgets/buttons/live_button.dart';
 import 'package:rol_match/user/domain/utils/profile_image.dart';
 import 'package:rol_match/user/ui/widgets/future/name_future_builder.dart';
@@ -31,8 +32,12 @@ class VistaPerfil extends StatelessWidget {
                 Navigator.pushNamed(context, '/agendaPartido');
               }),
           SizedBox(
+            height: 20,
+          ),
+          AdminButton(future: secureStorage.readSecureData('role')),
+          SizedBox(
             height: 100,
-          )
+          ),
         ],
       ),
     );
