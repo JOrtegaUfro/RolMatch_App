@@ -23,7 +23,7 @@ class _DateSelectorState extends State<DateSelector> {
       context: context,
       initialDate: _selectedDate,
       firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
+      lastDate: DateTime(2030),
     );
 
     if (pickedDate != null && pickedDate != _selectedDate) {

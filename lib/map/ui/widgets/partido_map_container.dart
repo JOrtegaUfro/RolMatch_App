@@ -23,8 +23,8 @@ class _PartidoMapContainerState extends State<PartidoMapContainer> {
       height: 40.0,
       point: LatLng(latitud, longitud),
       child: Icon(
-        Icons.sports_score,
-        color: Colors.orange,
+        Icons.local_activity,
+        color: Colors.purple,
       ),
     )
   ];

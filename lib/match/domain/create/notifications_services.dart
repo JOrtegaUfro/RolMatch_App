@@ -17,7 +17,7 @@ Future<void> initNotifications() async {
 }
 
 //Se muestra partido encontrado
-Future<void> mostrarNotifications(String sport) async {
+Future<void> mostrarNotifications(String type) async {
   const AndroidNotificationDetails androidNotificationDetails =
       AndroidNotificationDetails('your_channel_id', 'your_channel_name');
 
@@ -26,7 +26,7 @@ Future<void> mostrarNotifications(String sport) async {
   );
 
   await flutterLocalNotificationsPlugin.show(1, 'Partido encontrado',
-      'Partido de $sport encontrado!!', notificationDetails);
+      'Partida de $type encontrado!!', notificationDetails);
 }
 
 //Se muestra la notifacion que no ha encontrado partida

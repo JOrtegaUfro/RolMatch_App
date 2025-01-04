@@ -9,7 +9,7 @@ class VistaAgendaPartido extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Agenda de Partidos'),
+          title: Text('Agenda de Partidas'),
           automaticallyImplyLeading: true,
         ),
         body: AgendaPartidoModel());

@@ -82,7 +82,7 @@ class Match {
   Map<String, dynamic> toJson() {
     Map<String, dynamic> temp = {
       "title": "Partido de $_userName",
-      "description": "Partido de fútbol $_totalPlayers jugadores",
+      "description": "Partido de $_totalPlayers jugadores",
       "duration": _duration,
       "date": _date,
       "hour": _hora,
@@ -94,8 +94,8 @@ class Match {
     };
     debugPrint(temp.toString());
     return {
-      "title": "Partido de $_userName",
-      "description": "Partido de fútbol $_totalPlayers jugadores",
+      "title": "Partida de $_userName",
+      "description": "Partido de $_totalPlayers jugadores",
       "duration": _duration,
       "date": _date,
       "hour": _hora,

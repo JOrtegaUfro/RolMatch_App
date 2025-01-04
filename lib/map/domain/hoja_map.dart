@@ -14,8 +14,8 @@ class HojaMap {
         height: 40.0,
         point: LatLng(latitud, longitud),
         child: const Icon(
-          Icons.sports_score,
-          color: Colors.orange,
+          Icons.local_activity,
+          color: Colors.purple,
         ),
       )
     ];
