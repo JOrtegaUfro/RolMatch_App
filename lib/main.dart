@@ -17,13 +17,6 @@ void main() async {
   await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
   await initNotifications();
-  var _secureStorage = SecureStorage();
-
-  // await _secureStorage.writeSecureData('authorization', "None");
-  // await _secureStorage.writeSecureData('name', "Daniel Ruiz");
-  // await _secureStorage.writeSecureData('picture',
-  //     "https://media.4-paws.org/b/e/2/d/be2d88ceb9613ac5066bd11dd950faaf2671bef7/VIER%20PFOTEN_2019-03-15_001-1998x1999-600x600.jpg");
-  // await _secureStorage.writeSecureData('user_sesion_id', "1");
 
   runApp(const MyApp());
 }
