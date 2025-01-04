@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:rol_match/match/domain/models/joined_match.dart';
 import 'package:rol_match/match/ui/widgets/agenda/owner_partido_list.dart';
-import 'package:rol_match/match/ui/widgets/agenda/scroll/owner_matches.dart';
-import 'package:rol_match/user/domain/utils/player_image.dart';
 
 void main() {
   setUpAll(() {
@@ -21,7 +19,7 @@ void main() {
     joinedMatch.date = "14-06-2024";
     joinedMatch.duration = "60 minutos";
     joinedMatch.hora = "20:30";
-    joinedMatch.type = "Tipo 1";
+    joinedMatch.type = "DnD";
     joinedMatch.totalSlots = 6;
     joinedMatch.totalPlayer = 14;
 
@@ -34,8 +32,8 @@ void main() {
           builder: (BuildContext context) {
             return SingleChildScrollView(
               child: Column(
-                children:
-                    ownerPartidoList.JoinedMatches(context, listJoinedMatches),
+                children: ownerPartidoList.joinedMatches(
+                    context, listJoinedMatches, true),
               ),
             );
           },

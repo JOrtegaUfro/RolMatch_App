@@ -40,12 +40,12 @@
                 <td></td>
                 <td class="headerItem">Lines:</td>
                 <td class="headerCovTableEntry linesHit">25</td>
-                <td class="headerCovTableEntry linesFound">64</td>
-                <td class="covValue headerCovTableEntryLo">39.06 %</td>
+                <td class="headerCovTableEntry linesFound">63</td>
+                <td class="covValue headerCovTableEntryLo">39.68 %</td>
               </tr>
               <tr>
                 <td class="headerItem">Date:</td>
-                <td class="headerValue lastTraceFileModificationDate">2024-12-12 17:26:26.000</td>
+                <td class="headerValue lastTraceFileModificationDate">2025-01-04 17:36:11.000</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -148,78 +148,74 @@
 </a><a name="replace.with.line.number"><span class="lineNum">      72 </span><span class="sourceLine">            : </span>
 </a><a name="replace.with.line.number"><span class="lineNum">      73 </span><span class="sourceLine lineNoCov">          0 :     double longitud = await prefs.getDouble('user_sesion_longitud')!;</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      74 </span><span class="sourceLine lineNoCov">          0 :     double latitud = await prefs.getDouble('user_sesion_latitud')!;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      75 </span><span class="sourceLine lineNoCov">          0 :     String _url = 'http://$_ip/matches/nearestMatch/1';</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      75 </span><span class="sourceLine lineNoCov">          0 :     String _url = 'http://$_ip/games/nearest-game/1';</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      76 </span><span class="sourceLine">            : </span>
 </a><a name="replace.with.line.number"><span class="lineNum">      77 </span><span class="sourceLine lineNoCov">          0 :     var userIdInt = int.parse(userId);</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      78 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      79 </span><span class="sourceLine lineNoCov">          0 :     Map&lt;String, String&gt; headers = {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      80 </span><span class="sourceLine">            :       'Content.Type': 'application/json',</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      81 </span><span class="sourceLine">            :     };</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      82 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      83 </span><span class="sourceLine lineNoCov">          0 :     String body = json.encode({</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      84 </span><span class="sourceLine">            :       "id": userIdInt,</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      85 </span><span class="sourceLine lineNoCov">          0 :       "game": game.toString(),</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      86 </span><span class="sourceLine">            :       "longitude": longitud,</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      87 </span><span class="sourceLine">            :       "latitude": latitud</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      88 </span><span class="sourceLine">            :     });</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      89 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      90 </span><span class="sourceLine lineNoCov">          0 :     print("Enviando $body");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      79 </span><span class="sourceLine lineNoCov">          0 :     String body = json.encode({</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      80 </span><span class="sourceLine">            :       "id": userIdInt,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      81 </span><span class="sourceLine lineNoCov">          0 :       "type": game.toString(),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      82 </span><span class="sourceLine">            :       "longitude": longitud,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      83 </span><span class="sourceLine">            :       "latitude": latitud</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      84 </span><span class="sourceLine">            :     });</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      85 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      86 </span><span class="sourceLine lineNoCov">          0 :     print("SENDING $body");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      87 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      88 </span><span class="sourceLine lineNoCov">          0 :     final Duration retryInterval = Duration(seconds: 3);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      89 </span><span class="sourceLine lineNoCov">          0 :     final Duration timeoutDuration = Duration(seconds: 30);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      90 </span><span class="sourceLine lineNoCov">          0 :     DateTime startTime = DateTime.now();</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      91 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      92 </span><span class="sourceLine lineNoCov">          0 :     final Duration retryInterval = Duration(seconds: 3);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      93 </span><span class="sourceLine lineNoCov">          0 :     final Duration timeoutDuration = Duration(seconds: 30);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      94 </span><span class="sourceLine lineNoCov">          0 :     DateTime startTime = DateTime.now();</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      95 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      96 </span><span class="sourceLine lineNoCov">          0 :     while (DateTime.now().difference(startTime) &lt; timeoutDuration) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      97 </span><span class="sourceLine">            :       try {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      98 </span><span class="sourceLine lineNoCov">          0 :         var response = await dio.get(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      99 </span><span class="sourceLine">            :           _url,</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     100 </span><span class="sourceLine">            :           data: body,</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     101 </span><span class="sourceLine lineNoCov">          0 :           options: Options(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     102 </span><span class="sourceLine lineNoCov">          0 :             headers: {'Content-Type': 'application/json'},</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     103 </span><span class="sourceLine">            :           ),</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     104 </span><span class="sourceLine">            :         );</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     105 </span><span class="sourceLine lineNoCov">          0 :         print("POST POST");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     106 </span><span class="sourceLine lineNoCov">          0 :         print("$response");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     107 </span><span class="sourceLine lineNoCov">          0 :         if (response.statusCode == 200 || response.statusCode == 201) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     108 </span><span class="sourceLine lineNoCov">          0 :           var jsonResponse = response.data;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     109 </span><span class="sourceLine lineNoCov">          0 :           JoinedMatch match = JoinedMatch.fromJson(jsonResponse);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     110 </span><span class="sourceLine lineNoCov">          0 :           print("SE ENCONTRARON PARTIDAS");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     111 </span><span class="sourceLine">            :           return match;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     112 </span><span class="sourceLine">            :         } else {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     113 </span><span class="sourceLine lineNoCov">          0 :           var error = response.data;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     114 </span><span class="sourceLine lineNoCov">          0 :           print("ERROR DE SOLICITUD $error");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     115 </span><span class="sourceLine">            :         }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     116 </span><span class="sourceLine">            :       } catch (e) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     117 </span><span class="sourceLine lineNoCov">          0 :         print("FALLO FALLO FALLO $e");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     118 </span><span class="sourceLine">            :       }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     119 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">     120 </span><span class="sourceLine lineNoCov">          0 :       await Future.delayed(retryInterval);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     121 </span><span class="sourceLine">            :     }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     122 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">     123 </span><span class="sourceLine lineNoCov">          0 :     throw Exception('No se encontro ningun partido en base a las preferencias');</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     124 </span><span class="sourceLine">            :   }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     125 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">     126 </span><span class="sourceLine lineNoCov">          0 :   Future&lt;Position&gt; getLocation() async {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     127 </span><span class="sourceLine lineNoCov">          0 :     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     128 </span><span class="sourceLine lineNoCov">          0 :     print("OBTENIENDO UBICACION");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     129 </span><span class="sourceLine">            :     if (!serviceEnabled) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     130 </span><span class="sourceLine lineNoCov">          0 :       return Future.error('Servicios de ubicación deshabilitados');</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     131 </span><span class="sourceLine">            :     }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     132 </span><span class="sourceLine lineNoCov">          0 :     LocationPermission permission = await Geolocator.checkPermission();</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     133 </span><span class="sourceLine lineNoCov">          0 :     if (permission == LocationPermission.denied) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     134 </span><span class="sourceLine lineNoCov">          0 :       permission = await Geolocator.requestPermission();</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     135 </span><span class="sourceLine lineNoCov">          0 :       if (permission == LocationPermission.denied) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     136 </span><span class="sourceLine lineNoCov">          0 :         return Future.error(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     137 </span><span class="sourceLine">            :             'Permisos de ubicación denegados de forma permanente');</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     138 </span><span class="sourceLine">            :       }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      92 </span><span class="sourceLine lineNoCov">          0 :     while (DateTime.now().difference(startTime) &lt; timeoutDuration) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      93 </span><span class="sourceLine">            :       try {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      94 </span><span class="sourceLine lineNoCov">          0 :         var response = await dio.post(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      95 </span><span class="sourceLine">            :           _url,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      96 </span><span class="sourceLine">            :           data: body,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      97 </span><span class="sourceLine lineNoCov">          0 :           options: Options(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      98 </span><span class="sourceLine lineNoCov">          0 :             headers: {'Content-Type': 'application/json'},</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      99 </span><span class="sourceLine">            :           ),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     100 </span><span class="sourceLine">            :         );</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     101 </span><span class="sourceLine lineNoCov">          0 :         print("POST POST");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     102 </span><span class="sourceLine lineNoCov">          0 :         print("$response");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     103 </span><span class="sourceLine lineNoCov">          0 :         if (response.statusCode == 200 || response.statusCode == 201) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     104 </span><span class="sourceLine lineNoCov">          0 :           var jsonResponse = response.data;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     105 </span><span class="sourceLine lineNoCov">          0 :           JoinedMatch match = JoinedMatch.fromJson(jsonResponse);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     106 </span><span class="sourceLine lineNoCov">          0 :           print("SE ENCONTRARON PARTIDAS");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     107 </span><span class="sourceLine">            :           return match;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     108 </span><span class="sourceLine">            :         } else {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     109 </span><span class="sourceLine lineNoCov">          0 :           var error = response.data;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     110 </span><span class="sourceLine lineNoCov">          0 :           print("ERROR DE SOLICITUD $error");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     111 </span><span class="sourceLine">            :         }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     112 </span><span class="sourceLine">            :       } catch (e) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     113 </span><span class="sourceLine lineNoCov">          0 :         print("FALLO FALLO FALLO $e");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     114 </span><span class="sourceLine">            :       }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     115 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">     116 </span><span class="sourceLine lineNoCov">          0 :       await Future.delayed(retryInterval);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     117 </span><span class="sourceLine">            :     }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     118 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">     119 </span><span class="sourceLine lineNoCov">          0 :     throw Exception('No se encontro ningun partido en base a las preferencias');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     120 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     121 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">     122 </span><span class="sourceLine lineNoCov">          0 :   Future&lt;Position&gt; getLocation() async {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     123 </span><span class="sourceLine lineNoCov">          0 :     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     124 </span><span class="sourceLine lineNoCov">          0 :     print("OBTENIENDO UBICACION");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     125 </span><span class="sourceLine">            :     if (!serviceEnabled) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     126 </span><span class="sourceLine lineNoCov">          0 :       return Future.error('Servicios de ubicación deshabilitados');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     127 </span><span class="sourceLine">            :     }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     128 </span><span class="sourceLine lineNoCov">          0 :     LocationPermission permission = await Geolocator.checkPermission();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     129 </span><span class="sourceLine lineNoCov">          0 :     if (permission == LocationPermission.denied) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     130 </span><span class="sourceLine lineNoCov">          0 :       permission = await Geolocator.requestPermission();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     131 </span><span class="sourceLine lineNoCov">          0 :       if (permission == LocationPermission.denied) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     132 </span><span class="sourceLine lineNoCov">          0 :         return Future.error(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     133 </span><span class="sourceLine">            :             'Permisos de ubicación denegados de forma permanente');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     134 </span><span class="sourceLine">            :       }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     135 </span><span class="sourceLine">            :     }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     136 </span><span class="sourceLine lineNoCov">          0 :     if (permission == LocationPermission.deniedForever) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     137 </span><span class="sourceLine lineNoCov">          0 :       return Future.error(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     138 </span><span class="sourceLine">            :           'Permisos de ubicación denegados de forma permanente');</span>
 </a><a name="replace.with.line.number"><span class="lineNum">     139 </span><span class="sourceLine">            :     }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     140 </span><span class="sourceLine lineNoCov">          0 :     if (permission == LocationPermission.deniedForever) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     141 </span><span class="sourceLine lineNoCov">          0 :       return Future.error(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     142 </span><span class="sourceLine">            :           'Permisos de ubicación denegados de forma permanente');</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     143 </span><span class="sourceLine">            :     }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     144 </span><span class="sourceLine lineNoCov">          0 :     return await Geolocator.getCurrentPosition();</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     145 </span><span class="sourceLine">            :   }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">     146 </span><span class="sourceLine">            : }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     140 </span><span class="sourceLine lineNoCov">          0 :     return await Geolocator.getCurrentPosition();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     141 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">     142 </span><span class="sourceLine">            : }</span>
 </a></pre>
         </td>
       </tr>

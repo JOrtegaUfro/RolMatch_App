@@ -89,8 +89,18 @@ class OwnerMatches {
       int id,
       String title,
       double latitud,
-      double longitud) {
+      double longitud,
+      bool test) {
+    List<Widget> bodyList = [
+      const SizedBox(height: 20),
+      bodyJoined(context, title, text, hora, duration, totalPlayers, id),
+    ];
+
+    if (test == false) {
+      bodyList.add(PartidoMapContainer(latitud: latitud, longitud: longitud));
+    }
     final ThemeData theme = Theme.of(context);
+
     return Container(
       height: 600.0,
       margin: const EdgeInsets.all(15.0),
@@ -114,11 +124,7 @@ class OwnerMatches {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          PartidoMapContainer(latitud: latitud, longitud: longitud),
-          const SizedBox(height: 20),
-          bodyJoined(context, title, text, hora, duration, totalPlayers, id),
-        ],
+        children: bodyList,
       ),
     );
   }

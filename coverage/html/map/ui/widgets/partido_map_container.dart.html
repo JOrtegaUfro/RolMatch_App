@@ -39,13 +39,13 @@
                 <td class="headerValue traceFileName">lcov.info</td>
                 <td></td>
                 <td class="headerItem">Lines:</td>
-                <td class="headerCovTableEntry linesHit">25</td>
-                <td class="headerCovTableEntry linesFound">27</td>
-                <td class="covValue headerCovTableEntryHi">92.59 %</td>
+                <td class="headerCovTableEntry linesHit">0</td>
+                <td class="headerCovTableEntry linesFound">23</td>
+                <td class="covValue headerCovTableEntryLo">0.00 %</td>
               </tr>
               <tr>
                 <td class="headerItem">Date:</td>
-                <td class="headerValue lastTraceFileModificationDate">2024-12-12 17:26:26.000</td>
+                <td class="headerValue lastTraceFileModificationDate">2025-01-04 17:36:11.000</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -80,64 +80,64 @@
 </a><a name="replace.with.line.number"><span class="lineNum">       4 </span><span class="sourceLine">            : import 'package:url_launcher/url_launcher.dart';</span>
 </a><a name="replace.with.line.number"><span class="lineNum">       5 </span><span class="sourceLine">            : </span>
 </a><a name="replace.with.line.number"><span class="lineNum">       6 </span><span class="sourceLine">            : class PartidoMapContainer extends StatefulWidget {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">       7 </span><span class="sourceLine lineCov">          1 :   const PartidoMapContainer(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">       7 </span><span class="sourceLine lineNoCov">          0 :   const PartidoMapContainer(</span>
 </a><a name="replace.with.line.number"><span class="lineNum">       8 </span><span class="sourceLine">            :       {super.key, required this.latitud, required this.longitud});</span>
 </a><a name="replace.with.line.number"><span class="lineNum">       9 </span><span class="sourceLine">            :   final double latitud;</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      10 </span><span class="sourceLine">            :   final double longitud;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      11 </span><span class="sourceLine lineCov">          1 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      11 </span><span class="sourceLine lineNoCov">          0 :   @override</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      12 </span><span class="sourceLine">            :   State&lt;PartidoMapContainer&gt; createState() =&gt;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      13 </span><span class="sourceLine lineCov">          3 :       _PartidoMapContainerState(latitud, longitud);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      13 </span><span class="sourceLine lineNoCov">          0 :       _PartidoMapContainerState(latitud, longitud);</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      14 </span><span class="sourceLine">            : }</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      15 </span><span class="sourceLine">            : </span>
 </a><a name="replace.with.line.number"><span class="lineNum">      16 </span><span class="sourceLine">            : class _PartidoMapContainerState extends State&lt;PartidoMapContainer&gt; {</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      17 </span><span class="sourceLine">            :   final double latitud;</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      18 </span><span class="sourceLine">            :   final double longitud;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      19 </span><span class="sourceLine lineCov">          1 :   _PartidoMapContainerState(double this.latitud, double this.longitud);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      20 </span><span class="sourceLine lineCov">          2 :   late List&lt;Marker&gt; marcadores = [</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      21 </span><span class="sourceLine lineCov">          1 :     Marker(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      19 </span><span class="sourceLine lineNoCov">          0 :   _PartidoMapContainerState(double this.latitud, double this.longitud);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      20 </span><span class="sourceLine">            :   late List&lt;Marker&gt; marcadores = [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      21 </span><span class="sourceLine">            :     Marker(</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      22 </span><span class="sourceLine">            :       width: 40.0,</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      23 </span><span class="sourceLine">            :       height: 40.0,</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      24 </span><span class="sourceLine lineCov">          3 :       point: LatLng(latitud, longitud),</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      25 </span><span class="sourceLine lineCov">          1 :       child: Icon(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      24 </span><span class="sourceLine">            :       point: LatLng(latitud, longitud),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      25 </span><span class="sourceLine">            :       child: Icon(</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      26 </span><span class="sourceLine">            :         Icons.sports_score,</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      27 </span><span class="sourceLine">            :         color: Colors.orange,</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      28 </span><span class="sourceLine">            :       ),</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      29 </span><span class="sourceLine">            :     )</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      30 </span><span class="sourceLine">            :   ];</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      31 </span><span class="sourceLine lineCov">          1 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      31 </span><span class="sourceLine lineNoCov">          0 :   @override</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      32 </span><span class="sourceLine">            :   void initState() {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      33 </span><span class="sourceLine lineCov">          1 :     super.initState();</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      33 </span><span class="sourceLine lineNoCov">          0 :     super.initState();</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      34 </span><span class="sourceLine">            :   }</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      35 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine lineCov">          1 :   @override</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine lineNoCov">          0 :   @override</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine">            :   Widget build(BuildContext context) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineCov">          1 :     return Container(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineNoCov">          0 :     return Container(</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine">            :       height: 200,</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine lineCov">          1 :       child: ClipRRect(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine lineCov">          1 :           borderRadius: BorderRadius.only(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine lineCov">          2 :               topLeft: Radius.circular(20), topRight: Radius.circular(20)),</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      43 </span><span class="sourceLine lineCov">          1 :           child: FlutterMap(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      44 </span><span class="sourceLine lineCov">          1 :             options: MapOptions(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      45 </span><span class="sourceLine lineCov">          3 :               initialCenter: LatLng(latitud, longitud),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine lineNoCov">          0 :       child: ClipRRect(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine lineNoCov">          0 :           borderRadius: BorderRadius.only(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine lineNoCov">          0 :               topLeft: Radius.circular(20), topRight: Radius.circular(20)),</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      43 </span><span class="sourceLine lineNoCov">          0 :           child: FlutterMap(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      44 </span><span class="sourceLine lineNoCov">          0 :             options: MapOptions(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      45 </span><span class="sourceLine lineNoCov">          0 :               initialCenter: LatLng(latitud, longitud),</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      46 </span><span class="sourceLine">            :               initialZoom: 13.2,</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      47 </span><span class="sourceLine">            :             ),</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      48 </span><span class="sourceLine lineCov">          1 :             children: [</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      49 </span><span class="sourceLine lineCov">          1 :               RichAttributionWidget(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      50 </span><span class="sourceLine lineCov">          1 :                 attributions: [</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      51 </span><span class="sourceLine lineCov">          1 :                   TextSourceAttribution(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      48 </span><span class="sourceLine lineNoCov">          0 :             children: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      49 </span><span class="sourceLine lineNoCov">          0 :               RichAttributionWidget(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      50 </span><span class="sourceLine lineNoCov">          0 :                 attributions: [</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      51 </span><span class="sourceLine lineNoCov">          0 :                   TextSourceAttribution(</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      52 </span><span class="sourceLine">            :                     'OpenStreetMap contributors',</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      53 </span><span class="sourceLine lineNoCov">          0 :                     onTap: () =&gt; launchUrl(</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      54 </span><span class="sourceLine lineNoCov">          0 :                         Uri.parse('https://openstreetmap.org/copyright')),</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      55 </span><span class="sourceLine">            :                   ),</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      56 </span><span class="sourceLine">            :                 ],</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      57 </span><span class="sourceLine">            :               ),</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      58 </span><span class="sourceLine lineCov">          1 :               TileLayer(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      58 </span><span class="sourceLine lineNoCov">          0 :               TileLayer(</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      59 </span><span class="sourceLine">            :                 urlTemplate:</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      60 </span><span class="sourceLine">            :                     'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      61 </span><span class="sourceLine">            :                 userAgentPackageName: 'com.example.app',</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      62 </span><span class="sourceLine">            :               ),</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      63 </span><span class="sourceLine lineCov">          1 :               MarkerLayer(</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      64 </span><span class="sourceLine lineCov">          1 :                 markers: marcadores,</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      63 </span><span class="sourceLine lineNoCov">          0 :               MarkerLayer(</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      64 </span><span class="sourceLine lineNoCov">          0 :                 markers: marcadores,</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      65 </span><span class="sourceLine">            :               ),</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      66 </span><span class="sourceLine">            :             ],</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      67 </span><span class="sourceLine">            :           )),</span>

@@ -22,7 +22,7 @@ void main() {
   test(
       'Utiliza joinService JOIN(), y solo se llama una vez al backend, ademas de no presentar un error al recibir respuesta 200',
       () async {
-    const path = 'http://10.0.2.2:3000/matches/1/join/1';
+    const path = 'http://10.0.2.2:3000/games/1/join/1';
     dio = Dio(BaseOptions(contentType: Headers.jsonContentType));
     dioAdapter = DioAdapter(dio: dio);
     var mockSecureStorage = MockSecureStorage();
@@ -47,7 +47,7 @@ void main() {
   test(
       'Utiliza joinService JOIN(), y solo se llama una vez al backend, se muestra error con retorno false ante respuesta 299',
       () async {
-    const path = 'http://10.0.2.2:3000/matches/1/join/1';
+    const path = 'http://10.0.2.2:3000/games/1/join/1';
     dio = Dio(BaseOptions(contentType: Headers.jsonContentType));
     dioAdapter = DioAdapter(dio: dio);
     var mockSecureStorage = MockSecureStorage();

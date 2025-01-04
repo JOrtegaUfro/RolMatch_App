@@ -8,7 +8,7 @@ import 'package:rol_match/match/domain/models/player.dart';
 //!Vista con jugadores
 class VistaAdmin extends StatelessWidget {
   const VistaAdmin({super.key});
-  //Se construye la vista de jugadores en un partido
+  //Se construye la vista de jugadores reportados
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class VistaAdmin extends StatelessWidget {
             )));
   }
 
-  //Listado de jugadores en un partido
+  //Listado de jugadores reportados
   Widget reportedList() {
     ReportedUser jugadorModel = new ReportedUser();
     GetReportedPlayers getPlayers = new GetReportedPlayers();

@@ -28,7 +28,7 @@ void main() {
     var mockSharedPreferences = MockSharedPreferences();
     gameSelector = GameSelector(sharedPreferences: mockSharedPreferences);
 
-    when(mockSharedPreferences.setString('game_selector_map', any))
+    when(mockSharedPreferences.setString('type', any))
         .thenAnswer((_) async => true);
 
     //
@@ -49,7 +49,6 @@ void main() {
     await tester.tap(find.text("Juego"));
     await tester.pumpAndSettle();
     await tester.tap(find.text("Cthulhu"));
-    verify(mockSharedPreferences.setString('game_selector_map', 'Cthulhu'))
-        .called(1);
+    verify(mockSharedPreferences.setString('type', 'Cthulhu')).called(1);
   });
 }

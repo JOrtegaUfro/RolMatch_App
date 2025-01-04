@@ -53,6 +53,6 @@ void main() {
     FormSave formSave = FormSave(sharedPreferences: mockSharedPreferences);
     DateTime dateTime = DateTime(2024, 12, 2, 12, 30);
     formSave.saveDate(dateTime);
-    verify(mockSharedPreferences.setString("date", "2- 12")).called(1);
+    verify(mockSharedPreferences.setString("date", "2-12-2024")).called(1);
   });
 }

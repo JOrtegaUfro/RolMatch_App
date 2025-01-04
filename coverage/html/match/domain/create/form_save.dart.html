@@ -45,7 +45,7 @@
               </tr>
               <tr>
                 <td class="headerItem">Date:</td>
-                <td class="headerValue lastTraceFileModificationDate">2024-12-12 17:26:26.000</td>
+                <td class="headerValue lastTraceFileModificationDate">2025-01-04 17:36:11.000</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -110,11 +110,12 @@
 </a><a name="replace.with.line.number"><span class="lineNum">      34 </span><span class="sourceLine lineCov">          1 :   void saveDate(DateTime date) async {</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      35 </span><span class="sourceLine lineCov">          1 :     final prefs = sharedPreferences ?? await SharedPreferences.getInstance();</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine lineCov">          5 :     String savedDate = "${date.toLocal().day}- ${date.toLocal().month}";</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine">            : </span>
-</a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine lineCov">          1 :     prefs.setString("date", savedDate);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine">            :   }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine">            : }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine">            :     String savedDate =</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineCov">          7 :         "${date.toLocal().day}-${date.toLocal().month}-${date.toLocal().year}";</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine">            : </span>
+</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine lineCov">          1 :     prefs.setString("date", savedDate);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine">            : }</span>
 </a></pre>
         </td>
       </tr>

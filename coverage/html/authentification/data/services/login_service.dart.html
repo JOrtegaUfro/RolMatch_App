@@ -40,12 +40,12 @@
                 <td></td>
                 <td class="headerItem">Lines:</td>
                 <td class="headerCovTableEntry linesHit">0</td>
-                <td class="headerCovTableEntry linesFound">23</td>
+                <td class="headerCovTableEntry linesFound">26</td>
                 <td class="covValue headerCovTableEntryLo">0.00 %</td>
               </tr>
               <tr>
                 <td class="headerItem">Date:</td>
-                <td class="headerValue lastTraceFileModificationDate">2024-12-12 17:26:26.000</td>
+                <td class="headerValue lastTraceFileModificationDate">2025-01-04 17:36:11.000</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -100,24 +100,27 @@
 </a><a name="replace.with.line.number"><span class="lineNum">      24 </span><span class="sourceLine lineNoCov">          0 :       if (response.statusCode == 200 || response.statusCode == 201) {</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      25 </span><span class="sourceLine lineNoCov">          0 :         var body = jsonDecode(response.body);</span>
 </a><a name="replace.with.line.number"><span class="lineNum">      26 </span><span class="sourceLine lineNoCov">          0 :         print("HALLO HALLO ");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      27 </span><span class="sourceLine lineNoCov">          0 :         var name = body["firstName"];</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      28 </span><span class="sourceLine lineNoCov">          0 :         var picture = body['picture'];</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      29 </span><span class="sourceLine lineNoCov">          0 :         var id = body['id'];</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      30 </span><span class="sourceLine">            :         //!Se almacena informacion del usuario</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      31 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('authorization', token);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      32 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('name', name);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      33 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('picture', picture);</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      34 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('user_sesion_id', id.toString());</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      35 </span><span class="sourceLine lineNoCov">          0 :         print('Almacenado en base de datos $id');</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine">            :       } else {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine lineNoCov">          0 :         var errorBack = response.body;</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineNoCov">          0 :         print("ERROR $errorBack");</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine">            :       }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine">            :     } catch (e) {</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine lineNoCov">          0 :       print(' Error login en solicitud: $e');</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine">            :     }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      43 </span><span class="sourceLine">            :   }</span>
-</a><a name="replace.with.line.number"><span class="lineNum">      44 </span><span class="sourceLine">            : }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      27 </span><span class="sourceLine lineNoCov">          0 :         print(body.toString());</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      28 </span><span class="sourceLine lineNoCov">          0 :         var name = body["firstName"];</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      29 </span><span class="sourceLine lineNoCov">          0 :         var picture = body['picture'];</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      30 </span><span class="sourceLine lineNoCov">          0 :         var id = body['id'];</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      31 </span><span class="sourceLine lineNoCov">          0 :         var role = body['role'];</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      32 </span><span class="sourceLine">            :         //!Se almacena informacion del usuario</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      33 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('role', role);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      34 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('authorization', token);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      35 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('name', name);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      36 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('picture', picture);</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      37 </span><span class="sourceLine lineNoCov">          0 :         _secureStorage.writeSecureData('user_sesion_id', id.toString());</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      38 </span><span class="sourceLine lineNoCov">          0 :         print('Almacenado en base de datos $id');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      39 </span><span class="sourceLine">            :       } else {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      40 </span><span class="sourceLine lineNoCov">          0 :         var errorBack = response.body;</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      41 </span><span class="sourceLine lineNoCov">          0 :         print("ERROR $errorBack");</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      42 </span><span class="sourceLine">            :       }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      43 </span><span class="sourceLine">            :     } catch (e) {</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      44 </span><span class="sourceLine lineNoCov">          0 :       print(' Error login en solicitud: $e');</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      45 </span><span class="sourceLine">            :     }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      46 </span><span class="sourceLine">            :   }</span>
+</a><a name="replace.with.line.number"><span class="lineNum">      47 </span><span class="sourceLine">            : }</span>
 </a></pre>
         </td>
       </tr>

@@ -63,7 +63,8 @@ class OwnerPartidoList {
       future: getJoinedMatches(),
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
         if (snapshot.hasData) {
-          List<Widget> products = JoinedMatches(context, snapshot.data!);
+          List<Widget> products =
+              _joinedMatches(context, snapshot.data!, false);
 
           return Column(
             children: products,
@@ -110,7 +111,8 @@ class OwnerPartidoList {
     return results;
   }
 
-  List<Widget> JoinedMatches(BuildContext context, List<dynamic> matches) {
+  List<Widget> _joinedMatches(
+      BuildContext context, List<dynamic> matches, bool test) {
     List<Widget> results = [];
     OwnerMatches owner = new OwnerMatches();
     matches.forEach((match) {
@@ -125,10 +127,16 @@ class OwnerPartidoList {
           match.id,
           match.title,
           match.latitud,
-          match.longitud);
+          match.longitud,
+          test);
       results.add(tempMatch);
     });
 
     return results;
   }
+
+  @visibleForTesting
+  List<Widget> joinedMatches(
+          BuildContext context, List<dynamic> matches, bool test) =>
+      _joinedMatches(context, matches, test);
 }
