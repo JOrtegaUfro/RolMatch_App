@@ -135,7 +135,7 @@ class OwnerMatches {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextModel(text: "Partido Propio", size: 20.0, color: Colors.white),
+        TextModel(text: "Partida Propia", size: 20.0, color: Colors.white),
         TextModel(text: text, size: 15.0, color: Colors.white),
         Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           TextModel(text: "H: $hora", size: 15.0, color: Colors.white),
